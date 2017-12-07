@@ -1,6 +1,7 @@
 const User = require('../models/user'); // Import User Model Schema
 const Admin = require('../models/admin'); // Import Admin Model Schema
 const Host = require('../models/host'); // Import Admin Model Schema
+const Event = require('../models/event'); // Import Admin Model Schema
 const Evaluator = require('../models/evaluator'); // Import Admin Model Schema
 const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing claims to be transferred between two parties.
 const config = require('../config/database'); // Import database configuration
@@ -117,6 +118,53 @@ module.exports = (router) => {
 });
 
 
+router.post('/add-event', (req, res) => {
+  if (!req.body.event_title) {
+    res.json({ success: false, message: 'You must provide an event_title' }); // Return error
+  } else {
+    if (!req.body.host_username) {
+      res.json({ success: false, message: 'You must provide a host username' }); // Return error
+    } else {
+        let event = new Event({
+          event_title: req.body.event_title,
+          host_username: req.body.host_username,
+          event_description: req.body.event_description
+        });
+
+        event.save((err) => {
+          if(err){
+            if (err.code === 11000) {
+              res.json({ success: false, message: 'event_title or host_username already exists' }); // Return error
+            }else{
+              if (err.errors){
+                if (err.errors.event_title) {
+                  res.json({ success: false, message: err.errors.event_title.message }); // Return error
+                }else{
+                  if (err.errors.host_username) {
+                    res.json({ success: false, message: err.errors.host_username.message }); // Return error
+                  }else{
+                    if (err.errors.event_description) {
+                      res.json({ success: false, message: err.errors.event_description.message }); // Return error
+                    }else{
+                      res.json({success:false, message: err});
+                    }
+                  }
+                }
+              } else{
+                res.json({ success: false, message :  'Could not save event. Err : ',err});
+              }                
+            }           
+          } else {
+            res.json({success:true, message: 'Event registered !'});
+          }
+        });
+
+           
+    }
+  }
+});
+
+
  /* ========
  Host LOGIN ROUTE
   ======== */
@@ -151,7 +199,7 @@ module.exports = (router) => {
                     message: 'Success!',
                     token3: token3,
                     host: {
-                      host_username: host.host_username
+					  host_username:host.host_username
                     }
                   }); // Return success and token to frontend
               }
@@ -427,6 +475,79 @@ module.exports = (router) => {
     });
   });
   
+  router.get('/hosts', (req, res) => {
+	   Host.find({}, function (err, hosts) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(hosts);
+        }
+    });
+  });
+  
+    router.get('/events', (req, res) => {
+	   Event.find({}, function (err, events) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(events);
+        }
+    });
+  });
+  
+   router.get('/events', (req, res) => {
+	   Event.find({}, function (err, events) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(events);
+        }
+    });
+  });
+  router.get('/get_host_events/:host_username', (req, res) => {
+	   Event.find({ host_username: req.params.host_username }, function (err, events) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(events);
+        }
+    });
+  });
+  
+    router.delete('/delete_host/:_id', (req, res) => {
+    Host.findOneAndRemove({ _id: req.params._id }, function (err, host) {
+        if (err)
+            res.send(err);
+        else {
+            Host.find({}, function (err, hosts) {
+				if (err)
+					res.send(err);
+				else {
+					res.json(hosts);
+				}
+			});
+        }
+    });
+});
+  
+    router.delete('/delete_event/:_id', (req, res) => {
+    Event.findOneAndRemove({ _id: req.params._id }, function (err, event) {
+        if (err)
+            res.send(err);
+        else {
+            Event.find({}, function (err, events) {
+				if (err)
+					res.send(err);
+				else {
+					res.json(events);
+				}
+			});
+        }
+    });
+});
+  
+  
+  
   router.delete('/delete_user/:_id', (req, res) => {
     User.findOneAndRemove({ _id: req.params._id }, function (err, book) {
         if (err)
@@ -485,7 +606,7 @@ module.exports = (router) => {
     });
   });
   
-   
+ 
   
   
   return router; // Return router object to main index.js
