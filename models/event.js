@@ -9,7 +9,10 @@ const Schema = mongoose.Schema; // Import Schema from Mongoose
 const eventSchema = new Schema({
   event_title: { type: String, required: true, unique: true},
   host_username: { type: String, required: true},
-  event_description: { type: String }
+  event_description: { type: String },
+  start_date: {type: Date},
+  end_date: {type: Date},
+  location: {type: String}
 });
 
 // Export Module/Schema

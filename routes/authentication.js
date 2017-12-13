@@ -128,7 +128,10 @@ router.post('/add-event', (req, res) => {
         let event = new Event({
           event_title: req.body.event_title,
           host_username: req.body.host_username,
-          event_description: req.body.event_description
+          event_description: req.body.event_description,
+		  start_date: req.body.start_date,
+		  end_date: req.body.end_date,
+		  location: req.body.location
         });
 
         event.save((err) => {
@@ -495,15 +498,18 @@ router.post('/add-event', (req, res) => {
     });
   });
   
-   router.get('/events', (req, res) => {
-	   Event.find({}, function (err, events) {
+  
+  
+router.get('/events/:_id', function (req, res) {
+    Event.findOne({ _id: req.params._id }, function (err, event) {
         if (err)
             res.send(err);
         else {
-            res.json(events);
+            res.json(event);
         }
     });
-  });
+}); 
+ 
   router.get('/get_host_events/:host_username', (req, res) => {
 	   Event.find({ host_username: req.params.host_username }, function (err, events) {
         if (err)
