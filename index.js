@@ -6,7 +6,7 @@ const config = require('./config/database'); // Mongoose Config
 const authentication = require('./routes/authentication')(router); // Import Authentication Routes
 const bodyParser = require('body-parser'); // Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 const cors = require('cors'); // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
-
+const moment = require('moment');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -31,4 +31,7 @@ mongoose.connect(config.uri, (err) => {
 
   app.listen(8080,()=>{
       console.log("Listening on port 8080");
+	  var a = moment("12-25-1995", "MM-DD-YYYY").format();
+		console.log(a);
+
   });

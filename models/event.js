@@ -10,9 +10,11 @@ const eventSchema = new Schema({
   event_title: { type: String, required: true, unique: true},
   host_username: { type: String, required: true},
   event_description: { type: String },
-  start_date: {type: Date},
-  end_date: {type: Date},
-  location: {type: String}
+  start: {type: Date},
+  end: {type: Date},
+  max_team_members : {type: Number},
+  location: {type: String},
+  evaluator_username : {type:String}
 });
 
 // Export Module/Schema

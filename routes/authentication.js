@@ -168,6 +168,43 @@ router.post('/add-event', (req, res) => {
 });
 
 
+//configure-event
+router.put('/update-event/:_id', (req, res) => {       
+Event.findOneAndUpdate({ _id: req.params._id },
+        { $set: 
+			{ 
+		  event_title: req.body.event_title,
+          host_username: req.body.host_username,
+          event_description: req.body.event_description,
+		  start: req.body.start,
+		  end: req.body.end,
+		  location: req.body.location,
+		  max_team_members: req.body.max_team_members,
+		  evaluator_username: req.body.evaluator_username,
+			} 
+		},
+        {new: true}, 
+		
+        function (err, event) {
+            if (err)
+                res.send(err);
+            else {
+				Event.find({}, function (err, events) {
+					if (err)
+						res.send(err);
+					else {
+						res.json(events);
+					}
+				});
+				
+            }
+        });
+    
+});
+
+
+
+
  /* ========
  Host LOGIN ROUTE
   ======== */
@@ -484,6 +521,16 @@ router.post('/add-event', (req, res) => {
             res.send(err);
         else {
             res.json(hosts);
+        }
+    });
+  });
+  
+    router.get('/evaluators', (req, res) => {
+	   Evaluator.find({}, function (err, evaluators) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(evaluators);
         }
     });
   });
