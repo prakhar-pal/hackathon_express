@@ -13,7 +13,13 @@ const eventSchema = new Schema({
   start: {type: Date},
   end: {type: Date},
   max_team_members : {type: Number},
+  max_ideas : {type: Number},
+  prize : {type: Number},
+  publish : {type: String},
   location: {type: String},
+  live: {type: String},
+  archived: {type: String},
+  future: {type: String},
   evaluator_username : {type:String}
 });
 

@@ -5,6 +5,7 @@ const Event = require('../models/event'); // Import Admin Model Schema
 const Evaluator = require('../models/evaluator'); // Import Admin Model Schema
 const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing claims to be transferred between two parties.
 const config = require('../config/database'); // Import database configuration
+const moment = require('moment');
 
 module.exports = (router) => {
 
@@ -180,7 +181,10 @@ Event.findOneAndUpdate({ _id: req.params._id },
 		  end: req.body.end,
 		  location: req.body.location,
 		  max_team_members: req.body.max_team_members,
-		  evaluator_username: req.body.evaluator_username,
+		  max_ideas: req.body.max_ideas,
+		  prize: req.body.prize,
+		  publish: req.body.publish,
+		  evaluator_username: req.body.evaluator_username
 			} 
 		},
         {new: true}, 
@@ -540,7 +544,18 @@ Event.findOneAndUpdate({ _id: req.params._id },
         if (err)
             res.send(err);
         else {
-            res.json(events);
+			for(i=0 ; i<events.length ; i++){
+				var a = moment(events[i].start,moment.ISO_8601);
+				var b = moment(events[i].end,moment.ISO_8601);
+				events[i].live=moment().isBetween(a, b);
+				events[i].archived= moment().isAfter(a) && moment().isAfter(b);
+				events[i].future=moment().isBefore(a) && moment().isBefore(b);
+			}
+			
+            res.json({
+				events : events,
+				
+			});
         }
     });
   });
@@ -548,6 +563,9 @@ Event.findOneAndUpdate({ _id: req.params._id },
   
   
 router.get('/events/:_id', function (req, res) {
+	var a = moment("2017-12-01T20:15:59.481+0000",moment.ISO_8601);
+	var b = moment("2017-12-23T02:03:23.416+0000",moment.ISO_8601);
+	console.log(moment().isBetween(a, b));
     Event.findOne({ _id: req.params._id }, function (err, event) {
         if (err)
             res.send(err);
