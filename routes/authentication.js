@@ -3,11 +3,14 @@ const Admin = require('../models/admin'); // Import Admin Model Schema
 const Host = require('../models/host'); // Import Admin Model Schema
 const Event = require('../models/event'); // Import Admin Model Schema
 const Evaluator = require('../models/evaluator'); // Import Admin Model Schema
+const Team = require('../models/team'); // Import Admin Model Schema
 const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing claims to be transferred between two parties.
 const config = require('../config/database'); // Import database configuration
 const moment = require('moment');
 
 module.exports = (router) => {
+
+
 
   router.get('/admin', (req, res) => {
     Admin.find({}, function (err, admin) {
@@ -19,6 +22,38 @@ module.exports = (router) => {
    });
  });
 
+ router.get('/team_details/:username', (req, res) => {
+	   Team.find({ username: req.params.username }, function (err, teams) {
+        if (err)
+            res.send(err);
+        else { 
+            res.json(teams);
+        }
+    });
+  });
+ 
+  router.post('/team_registration', (req, res) => {
+        let team = new Team({
+			username: req.body.username,
+			team_name: req.body.team_name,
+			member1: req.body.member1,
+			member2:req.body.member2, 
+			member3: req.body.member3,
+			event_id: req.body.event_id,
+			event_title: req.body.event_title
+        });
+
+        team.save((err) => {
+          if(err){
+            res.json({ success: false, message :  'Could not save team. Err : ',err});         
+          } else {
+            res.json({success:true, message: 'Team successfully  registered !'});
+          }
+        });
+});
+
+ 
+ 
  /* ========
  ADMIN LOGIN ROUTE
   ======== */
