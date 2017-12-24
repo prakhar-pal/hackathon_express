@@ -6,7 +6,7 @@ const config = require('./config/database'); // Mongoose Config
 const authentication = require('./routes/authentication')(router); // Import Authentication Routes
 const bodyParser = require('body-parser'); // Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 const cors = require('cors'); // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
-const multer = require('multer');
+var path = require('path');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
@@ -25,35 +25,11 @@ mongoose.connect(config.uri, (err) => {
         res.header("Access-Control-Allow-Credentials", true);
         next();
     });
-  app.use(express.static('../client'));
+  app.use(express.static(__dirname + '/uploads'));
   app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
   app.use(bodyParser.json()); // parse application/json
   
-  var storage = multer.diskStorage({ //multers disk storage settings
-        destination: function (req, file, cb) {
-            cb(null, './uploads/');
-        },
-        filename: function (req, file, cb) {
-            var datetimestamp = Date.now();
-            cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-        }
-    });
-
-    var upload = multer({ //multer settings
-                    storage: storage
-                }).single('file');
-
-    /** API path that will upload the files */
-    app.post('/upload', function(req, res) {
-        upload(req,res,function(err){
-			console.log(req.file); 
-            if(err){
-                 res.json({error_code:1,err_desc:err});
-                 return;
-            }
-             res.json({error_code:0,err_desc:null});
-        });
-    });
+ 
   
   app.get('/', function(req, res){
     res.send('<h1>hello world<h1/>');

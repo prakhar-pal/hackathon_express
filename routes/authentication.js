@@ -2,17 +2,59 @@ const User = require('../models/user'); // Import User Model Schema
 const Admin = require('../models/admin'); // Import Admin Model Schema
 const Host = require('../models/host'); // Import Admin Model Schema
 const Event = require('../models/event'); // Import Admin Model Schema
+const Submission = require('../models/submission'); // Import Admin Model Schema
 const Evaluator = require('../models/evaluator'); // Import Admin Model Schema
 const Team = require('../models/team'); // Import Admin Model Schema
 const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing claims to be transferred between two parties.
 const config = require('../config/database'); // Import database configuration
 const moment = require('moment');
+const multer = require('multer');
 
 module.exports = (router) => {
+	 router.get('/files', (req, res) => {
+	   Submission.find({}, function (err, submissions) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(submissions);
+        }
+    });
+  });
 
 
+router.post('/upload', function(req, res, next){
+    var storage = multer.diskStorage({ //multers disk storage settings
+        destination: function (req, file, cb) {
+            cb(null, './uploads/');
+        },
+        filename: function (req, file, cb) {
+            var datetimestamp = Date.now();
+            cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+        }
+    });
+	var upload = multer({ //multer settings
+                    storage: storage
+                }).single('file');
+    upload(req,res,function(err){
+		
+		let submission = new Submission({
+			team_id: req.body._id,
+			file_name: req.file.filename
+        });
+		submission.save();
+		console.log(req.file);
+            if(err){
+                 res.json({error_code:1,err_desc:err});
+                 return;
+            }
+             res.json({error_code:0,err_desc:null});
+        });
+})
 
-  router.get('/admin', (req, res) => {
+
+	
+
+  router.get('/admin', (req, res) => { 
     Admin.find({}, function (err, admin) {
        if (err)
            res.send(err);
