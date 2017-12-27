@@ -9,18 +9,10 @@ const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing 
 const config = require('../config/database'); // Import database configuration
 const moment = require('moment');
 const multer = require('multer');
+const mongo = require('mongodb');
 
 module.exports = (router) => {
-	 router.get('/files', (req, res) => {
-	   Submission.find({}, function (err, submissions) {
-        if (err)
-            res.send(err);
-        else {
-            res.json(submissions);
-        }
-    });
-  });
-
+	 
 
 router.post('/upload', function(req, res, next){
     var storage = multer.diskStorage({ //multers disk storage settings
@@ -39,6 +31,7 @@ router.post('/upload', function(req, res, next){
 		
 		let submission = new Submission({
 			team_id: req.body._id,
+			username: req.body.username,
 			file_name: req.file.filename
         });
 		submission.save();
@@ -73,6 +66,94 @@ router.post('/upload', function(req, res, next){
         }
     });
   });
+  
+   router.get('/eval_eventwise_team_details/:event_id', (req, res) => {
+	   Team.find({ event_id: req.params.event_id }, function (err, teams) {
+        if (err)
+            res.send(err);
+        else { 
+            res.json(teams);
+        }
+    });
+  });
+  
+  router.get('/files/:username', (req, res) => {
+		Submission.find({username: req.params.username}, function (err, a) {
+        if (err)
+            res.send(err); 
+        else {
+			var arr1=[];
+			var arr2=[];
+			for(i=0 ; i<a.length ; i++){
+				arr1[i] = new mongo.ObjectID(a[i].team_id);
+				arr2[i]= a[i].file_name;
+			}
+			console.log(arr1);
+			console.log(arr2);
+			Team.find({ _id:{$in:arr1} }, function (err, b) {
+				if (err)
+					res.send(err);
+				else { 
+					var x=[];
+					for(i=0 ; i<arr2.length ; i++){
+						x[i]= {
+							file_name : arr2[i],
+							team_name : b[i].team_name,
+							event_title : b[i].event_title
+							}
+					}
+					console.log(x);
+					res.json(x);
+				}
+			});
+		}
+		});
+  });
+  
+  
+  
+  router.get('/eval_teamwise_files/:team_id', (req, res) => {
+		Submission.find({team_id: req.params.team_id}, function (err, a) {
+        if (err)
+            res.send(err); 
+        else {
+			var arr1=[];
+			var arr2=[];
+			for(i=0 ; i<a.length ; i++){
+				arr1[i] = new mongo.ObjectID(a[i].team_id);
+				arr2[i]= a[i].file_name;
+			}
+			console.log(arr1);
+			console.log(arr2);
+			Team.find({ _id:{$in:arr1} }, function (err, b) {
+				if (err)
+					res.send(err);
+				else { 
+					var x=[];
+					for(i=0 ; i<arr2.length ; i++){
+						x[i]= {
+							file_name : arr2[i],
+							team_name : b[i].team_name,
+							event_title : b[i].event_title
+							}
+					}
+					console.log(x);
+					res.json(x);
+				}
+			});
+		}
+		});
+  });
+  
+  
+  router.get('/demo',(req,res) =>{
+	  var a=[];
+	  for(i=0 ; i<5 ; i++){
+		  a[i] = {i : i, j : i+1};
+	  }
+	  res.json(a);
+  });
+
  
   router.post('/team_registration', (req, res) => {
         let team = new Team({
@@ -654,6 +735,16 @@ router.get('/events/:_id', function (req, res) {
  
   router.get('/get_host_events/:host_username', (req, res) => {
 	   Event.find({ host_username: req.params.host_username }, function (err, events) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(events);
+        }
+    });
+  });
+  
+  router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
+	   Event.find({ evaluator_username: req.params.evaluator_username }, function (err, events) {
         if (err)
             res.send(err);
         else {

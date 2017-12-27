@@ -7,6 +7,7 @@ const Schema = mongoose.Schema; // Import Schema from Mongoose
 
 // User Model Definition
 const submissionSchema = new Schema({
+  username : { type: String},
   team_id: { type: String},
   file_name: { type: String },
 });
