@@ -3,6 +3,7 @@ const Admin = require('../models/admin'); // Import Admin Model Schema
 const Host = require('../models/host'); // Import Admin Model Schema
 const Event = require('../models/event'); // Import Admin Model Schema
 const Submission = require('../models/submission'); // Import Admin Model Schema
+const Evaluation = require('../models/evaluation'); // Import Admin Model Schema
 const Evaluator = require('../models/evaluator'); // Import Admin Model Schema
 const Team = require('../models/team'); // Import Admin Model Schema
 const jwt = require('jsonwebtoken'); // Compact, URL-safe means of representing claims to be transferred between two parties.
@@ -67,6 +68,20 @@ router.post('/upload', function(req, res, next){
     });
   });
   
+  router.get('/evaluation_data/:team_id', (req, res) => {
+	   Evaluation.findOne({ team_id: req.params.team_id }, function (err, data) {
+        if (err)
+            res.send(err);
+        else { 
+		if(data==null)
+            res.json({});
+		else
+			res.json(data);
+        }
+    });
+  });
+  
+  
    router.get('/eval_eventwise_team_details/:event_id', (req, res) => {
 	   Team.find({ event_id: req.params.event_id }, function (err, teams) {
         if (err)
@@ -77,84 +92,20 @@ router.post('/upload', function(req, res, next){
     });
   });
   
-  router.get('/files/:username', (req, res) => {
-		Submission.find({username: req.params.username}, function (err, a) {
-        if (err)
-            res.send(err); 
-        else {
-			var arr1=[];
-			var arr2=[];
-			for(i=0 ; i<a.length ; i++){
-				arr1[i] = new mongo.ObjectID(a[i].team_id);
-				arr2[i]= a[i].file_name;
-			}
-			console.log(arr1);
-			console.log(arr2);
-			Team.find({ _id:{$in:arr1} }, function (err, b) {
-				if (err)
-					res.send(err);
-				else { 
-					var x=[];
-					for(i=0 ; i<arr2.length ; i++){
-						x[i]= {
-							file_name : arr2[i],
-							team_name : b[i].team_name,
-							event_title : b[i].event_title
-							}
-					}
-					console.log(x);
-					res.json(x);
-				}
-			});
-		}
-		});
-  });
+   
   
-  
-  
-  router.get('/eval_teamwise_files/:team_id', (req, res) => {
+  router.get('/teamwise_files/:team_id', (req, res) => {
 		Submission.find({team_id: req.params.team_id}, function (err, a) {
-        if (err)
-            res.send(err); 
-        else {
-			var arr1=[];
-			var arr2=[];
-			for(i=0 ; i<a.length ; i++){
-				arr1[i] = new mongo.ObjectID(a[i].team_id);
-				arr2[i]= a[i].file_name;
-			}
-			console.log(arr1);
-			console.log(arr2);
-			Team.find({ _id:{$in:arr1} }, function (err, b) {
-				if (err)
-					res.send(err);
-				else { 
-					var x=[];
-					for(i=0 ; i<arr2.length ; i++){
-						x[i]= {
-							file_name : arr2[i],
-							team_name : b[i].team_name,
-							event_title : b[i].event_title
-							}
-					}
-					console.log(x);
-					res.json(x);
-				}
-			});
-		}
+			if (err)
+            res.send(err);
+			else { 
+            res.json(a);
+        }
 		});
   });
   
   
-  router.get('/demo',(req,res) =>{
-	  var a=[];
-	  for(i=0 ; i<5 ; i++){
-		  a[i] = {i : i, j : i+1};
-	  }
-	  res.json(a);
-  });
 
- 
   router.post('/team_registration', (req, res) => {
         let team = new Team({
 			username: req.body.username,
@@ -165,7 +116,6 @@ router.post('/upload', function(req, res, next){
 			event_id: req.body.event_id,
 			event_title: req.body.event_title
         });
-
         team.save((err) => {
           if(err){
             res.json({ success: false, message :  'Could not save team. Err : ',err});         
@@ -174,6 +124,9 @@ router.post('/upload', function(req, res, next){
           }
         });
 });
+
+
+
 
  
  
@@ -364,7 +317,54 @@ Event.findOneAndUpdate({ _id: req.params._id },
     
 });
 
+router.put('/update_evaluation_data/:team_id', (req, res) => {  
+console.log(req.body);     
+Evaluation.findOneAndUpdate({ team_id: req.params.team_id },
+        { $set: 
+			{ 
+			team_id : req.params.team_id,
+			evaluator_username: req.body.evaluator_username,
+			criteria1: req.body.criteria1,
+			criteria2: req.body.criteria2,
+			criteria3: req.body.criteria3,
+			comments: req.body.comments
+			} 
+		},
+        {upsert: true},	
+		
+		function(err, user) {
+        if (err)
+            res.send(err);
+		else{
+			Evaluation.find({}, function (err, data) {
+				if (err)
+					res.send(err);
+				else {
+					res.json(data);
+				}
+			});
+		  }
+        });
+		
+		
+        // function (err, aaaaaa) {
+            // if (err)
+                // res.send(err);
+            // else {
+				// Evaluation.find({}, function (err, data) {
+					// if (err)
+						// res.send(err);
+					// else {
+						// res.json(data);
+					// }
+				// });
+				
+            // }
+        // });
+     
+});
 
+  
 
 
  /* ========
@@ -742,6 +742,7 @@ router.get('/events/:_id', function (req, res) {
         }
     });
   });
+
   
   router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
 	   Event.find({ evaluator_username: req.params.evaluator_username }, function (err, events) {
