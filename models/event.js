@@ -20,7 +20,13 @@ const eventSchema = new Schema({
   live: {type: String},
   archived: {type: String},
   future: {type: String},
-  evaluator_username : {type:String}
+  time: {type: String},
+  display_time: {type: String},
+  days: {type: String},
+  hours: {type: String},
+  minutes: {type: String},
+  evaluator_username : {type:String},
+  evaluators_array : {'type': {type: String}, 'value': [String]}
 });
 
 // Export Module/Schema

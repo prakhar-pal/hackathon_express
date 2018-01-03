@@ -281,7 +281,8 @@ router.post('/add-event', (req, res) => {
 
 
 //configure-event
-router.put('/update-event/:_id', (req, res) => {       
+router.put('/update-event/:_id', (req, res) => {     
+console.log(req.body.evaluators_array[0]);  
 Event.findOneAndUpdate({ _id: req.params._id },
         { $set: 
 			{ 
@@ -295,7 +296,7 @@ Event.findOneAndUpdate({ _id: req.params._id },
 		  max_ideas: req.body.max_ideas,
 		  prize: req.body.prize,
 		  publish: req.body.publish,
-		  evaluator_username: req.body.evaluator_username
+		  evaluators_array:req.body.evaluators_array
 			} 
 		},
         {new: true}, 
@@ -708,6 +709,12 @@ Evaluation.findOneAndUpdate({ team_id: req.params.team_id },
 				events[i].live=moment().isBetween(a, b);
 				events[i].archived= moment().isAfter(a) && moment().isAfter(b);
 				events[i].future=moment().isBefore(a) && moment().isBefore(b);
+				console.log(a.from(moment(),true));
+				events[i].time=a.from(moment(),true);
+				events[i].days=a.diff(moment(), 'days');
+				events[i].hours=a.diff(moment(), 'hours');
+				events[i].minutes=a.diff(moment(), 'minutes');
+				
 			}
 			
             res.json({
@@ -721,14 +728,25 @@ Evaluation.findOneAndUpdate({ team_id: req.params.team_id },
   
   
 router.get('/events/:_id', function (req, res) {
-	var a = moment("2017-12-01T20:15:59.481+0000",moment.ISO_8601);
-	var b = moment("2017-12-23T02:03:23.416+0000",moment.ISO_8601);
-	console.log(moment().isBetween(a, b));
     Event.findOne({ _id: req.params._id }, function (err, event) {
         if (err)
             res.send(err);
         else {
-            res.json(event);
+			var a = moment(event.start,moment.ISO_8601);
+				var b = moment(event.end,moment.ISO_8601);
+				event.live=moment().isBetween(a, b);
+				event.archived= moment().isAfter(a) && moment().isAfter(b);
+				event.future=moment().isBefore(a) && moment().isBefore(b);
+				event.time=a.from(moment(),true);
+				event.display_time=a.format("ddd, MMM Do YYYY, h:mm a"); 
+				event.days=a.toObject().date - moment().toObject().date ;
+				event.hours=a.toObject().hours - moment().toObject().hours ;
+				event.minutes=a.toObject().minutes - moment().toObject().minutes ;
+				
+			 res.json({
+				event : event,
+				
+			});
         }
     });
 }); 
@@ -744,8 +762,18 @@ router.get('/events/:_id', function (req, res) {
   });
 
   
-  router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
-	   Event.find({ evaluator_username: req.params.evaluator_username }, function (err, events) {
+  // router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
+	   // Event.find({ evaluator_username: req.params.evaluator_username }, function (err, events) {
+        // if (err)
+            // res.send(err);
+        // else {
+            // res.json(events);
+        // }
+    // });
+  // });
+  
+   router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
+	   Event.find({ evaluators_array: req.params.evaluator_username }, function (err, events) {
         if (err)
             res.send(err);
         else {
