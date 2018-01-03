@@ -116,8 +116,8 @@ const passwordValidators = [
 // User Model Definition
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true, lowercase: true, validate: emailValidators },
-  username: { type: String, required: true, unique: true, lowercase: true, validate: usernameValidators },
-  password: { type: String, required: true,validate: passwordValidators }
+  username: { type: String, required: true, unique: true, lowercase: true},
+  password: { type: String}
 });
 
 // Schema Middleware to Encrypt Password

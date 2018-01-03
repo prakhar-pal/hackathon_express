@@ -36,7 +36,7 @@ mongoose.connect(config.uri, (err) => {
   });
 
 
-  app.use('/authentication', authentication); // Use Authentication routes in application
+  app.use('/authentication', authentication); 
 
   app.listen(8080,()=>{
       console.log("Listening on port 8080");
