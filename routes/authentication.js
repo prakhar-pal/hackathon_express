@@ -166,14 +166,17 @@ module.exports = (router) => {
         });
     });
 
-    router.get('/team_details/:username', (req, res) => {
-        Team.find({
-            username: req.params.username
-        }, function(err, teams) {
+    router.get('/team_details/:username/:_id', (req, res) => {
+		console.log(req.params.username);
+		console.log(req.params._id);
+        Team.findOne({
+            username: req.params.username,
+			event_id: req.params._id
+        }, function(err, team) {
             if (err)
                 res.send(err);
-            else {
-                res.json(teams);
+            else { 
+                res.json(team);
             }
         });
     });
@@ -496,7 +499,9 @@ module.exports = (router) => {
                     location: req.body.location,
                     max_team_members: req.body.max_team_members,
                     max_ideas: req.body.max_ideas,
-                    prize: req.body.prize,
+                    prize1: req.body.prize1,
+					prize2: req.body.prize2,
+					prize3: req.body.prize3,
                     publish: req.body.publish,
                     evaluators_array: req.body.evaluators_array
                 }
@@ -1057,7 +1062,6 @@ module.exports = (router) => {
                     events[i].live = moment().isBetween(a, b);
                     events[i].archived = moment().isAfter(a) && moment().isAfter(b);
                     events[i].future = moment().isBefore(a) && moment().isBefore(b);
-                    console.log(a.from(moment(), true));
                     events[i].time = a.from(moment(), true);
                     events[i].days = a.diff(moment(), 'days');
                     events[i].hours = a.diff(moment(), 'hours');
@@ -1100,7 +1104,42 @@ module.exports = (router) => {
             }
         });
     });
+	
+	 router.get('/event_details/:_id', function(req, res) {
+        Event.findOne({
+            _id: req.params._id
+        }, function(err, event) {
+            if (err)
+                res.send(err);
+            else {
+				
+					res.send(event);
+				
+				
+            }
+        });
+    });
+	
+	
+	
 
+	router.get('/check_registration/:username/:event_id', function(req, res) {
+        Team.findOne({
+            username: req.params.username,
+			event_id: req.params.event_id
+        }, function(err, team) {
+            if (err)
+                res.send(err);
+            else {
+					res.json(team);
+                
+            }
+        });
+    });
+	
+	
+	
+	
     router.get('/get_host_events/:host_username', (req, res) => {
         Event.find({
             host_username: req.params.host_username
