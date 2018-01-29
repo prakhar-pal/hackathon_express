@@ -28,7 +28,6 @@ const eventSchema = new Schema({
   hours: {type: String},
   minutes: {type: String},
   evaluator_username : {type:String},
-  evaluators_array : {'type': {type: String}, 'value': [String]}
 });
 
 // Export Module/Schema

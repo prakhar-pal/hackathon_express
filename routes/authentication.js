@@ -486,7 +486,6 @@ module.exports = (router) => {
 
     //configure-event
     router.put('/update-event/:_id', (req, res) => {
-        console.log(req.body.evaluators_array[0]);
         Event.findOneAndUpdate({
                 _id: req.params._id
             }, {
@@ -503,7 +502,7 @@ module.exports = (router) => {
 					prize2: req.body.prize2,
 					prize3: req.body.prize3,
                     publish: req.body.publish,
-                    evaluators_array: req.body.evaluators_array
+                    evaluator_username: req.body.evaluator_username
                 }
             }, {
                 new: true
@@ -1165,7 +1164,7 @@ module.exports = (router) => {
 
     router.get('/get_evaluator_events/:evaluator_username', (req, res) => {
         Event.find({
-            evaluators_array: req.params.evaluator_username
+            evaluator_username: req.params.evaluator_username
         }, function(err, events) {
             if (err)
                 res.send(err);
