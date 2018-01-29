@@ -208,6 +208,18 @@ module.exports = (router) => {
             }
         });
     });
+	router.get('/host_eventwise_team_details/:event_id', (req, res) => {
+        Team.find({
+            event_id: req.params.event_id
+        }, function(err, teams) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(teams);
+            }
+        });
+    });
+
 
 
 
