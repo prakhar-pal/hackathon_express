@@ -17,7 +17,7 @@ mongoose.connect(config.uri, (err) => {
       console.log('Connected to ' + config.db); // Return success message
     }
   });
-  
+
   app.use(function(req, res, next) { //allow cross origin requests
         res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
         res.header("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -26,17 +26,21 @@ mongoose.connect(config.uri, (err) => {
         next();
     });
   app.use(express.static(__dirname + '/uploads'));
+  app.use(express.static(__dirname + '/public'));
   app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
   app.use(bodyParser.json()); // parse application/json
-  
- 
-  
+
+
+
   app.get('/', function(req, res){
     res.send('<h1>hello world<h1/>');
   });
 
 
-  app.use('/authentication', authentication); 
+  app.use('/authentication', authentication);
+  app.get('*',(req,res)=>{
+      res.sendFile('index.html');
+  });
 
   app.listen(8080,()=>{
       console.log("Listening on port 8080");
