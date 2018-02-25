@@ -3811,7 +3811,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        this.domain = "http://localhost:8080/";
+        this.domain = "http://localhost:5000/";
     }
     // Function to create headers, add token, to be used in HTTP requests
     AuthService.prototype.createAuthenticationHeaders = function () {
@@ -4046,7 +4046,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GetTokenService = (function () {
     function GetTokenService(http) {
         this.http = http;
-        this.accessTokenUrl = "http://localhost:8080/authentication/callback";
+        this.accessTokenUrl = "http://localhost:5000/authentication/callback";
     }
     GetTokenService.prototype.getToken = function (info) {
         console.log(info);
