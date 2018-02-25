@@ -35,14 +35,14 @@ mongoose.connect(config.uri, (err) => {
 
 
   app.get('/', function(req, res){
-    res.send('<h1>hello world<h1/>');
+    res.sendFile(__dirname+'/public/index.html');
   });
 
 
   app.use('/authentication', authentication);
 
   app.get('*',(req,res)=>{
-      res.sendFile('index.html');
+      res.redirect('/');
   });
 
 
