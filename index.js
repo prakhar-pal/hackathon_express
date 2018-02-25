@@ -38,10 +38,12 @@ mongoose.connect(config.uri, (err) => {
 
 
   app.use('/authentication', authentication);
+
   app.get('*',(req,res)=>{
       res.sendFile('index.html');
   });
 
-  app.listen(80,()=>{
-      console.log("Listening on port 80");
+
+  app.listen(8080,()=>{
+      console.log("Listening on port 8000");
   });
