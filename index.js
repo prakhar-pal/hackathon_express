@@ -8,6 +8,8 @@ const bodyParser = require('body-parser'); // Parse incoming request bodies in a
 const cors = require('cors'); // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 var path = require('path');
 
+const PORT = process.env.PORT || 8080;
+console.log("Port is "+PORT);
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
     // Check if database was able to connect
@@ -44,6 +46,6 @@ mongoose.connect(config.uri, (err) => {
   });
 
 
-  app.listen(8080,()=>{
-      console.log("Listening on port 8000");
+  app.listen(PORT,()=>{
+      console.log("Listening on port "+PORT);
   });
