@@ -14,7 +14,9 @@ const eventSchema = new Schema({
   end: {type: Date},
   max_team_members : {type: Number},
   max_ideas : {type: Number},
-  prize : {type: Number},
+  prize1 : {type: String},
+  prize2 : {type: String},
+  prize3 : {type: String},
   publish : {type: String},
   location: {type: String},
   live: {type: String},
@@ -26,7 +28,6 @@ const eventSchema = new Schema({
   hours: {type: String},
   minutes: {type: String},
   evaluator_username : {type:String},
-  evaluators_array : {'type': {type: String}, 'value': [String]}
 });
 
 // Export Module/Schema
