@@ -52,12 +52,15 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_event_page_event_page_component__ = __webpack_require__("../../../../../src/app/components/event-page/event-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_configure_event_configure_event_component__ = __webpack_require__("../../../../../src/app/components/configure-event/configure-event.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_team_registration_team_registration_component__ = __webpack_require__("../../../../../src/app/components/team-registration/team-registration.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_submit_artifact_submit_artifact_component__ = __webpack_require__("../../../../../src/app/components/submit-artifact/submit-artifact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__ = __webpack_require__("../../../../../src/app/components/eval-eventwise-registered-teams/eval-eventwise-registered-teams.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_eval_teamwise_submissions_eval_teamwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/eval-teamwise-submissions/eval-teamwise-submissions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_user_eventwise_submissions_user_eventwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__ = __webpack_require__("../../../../../src/app/components/eval-submit-evaluation-form/eval-submit-evaluation-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_demo_demo_component__ = __webpack_require__("../../../../../src/app/components/demo/demo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__ = __webpack_require__("../../../../../src/app/components/eval-eventwise-registered-teams/eval-eventwise-registered-teams.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_eval_teamwise_submissions_eval_teamwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/eval-teamwise-submissions/eval-teamwise-submissions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__ = __webpack_require__("../../../../../src/app/components/eval-submit-evaluation-form/eval-submit-evaluation-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_demo_demo_component__ = __webpack_require__("../../../../../src/app/components/demo/demo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__contacts_list_contacts_list_component__ = __webpack_require__("../../../../../src/app/contacts-list/contacts-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__contacts_detail_contacts_detail_component__ = __webpack_require__("../../../../../src/app/contacts-detail/contacts-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__contact_resolve__ = __webpack_require__("../../../../../src/app/contact.resolve.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__event_resolve__ = __webpack_require__("../../../../../src/app/event.resolve.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_join_event_join_event_component__ = __webpack_require__("../../../../../src/app/components/join-event/join-event.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -100,10 +103,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var appRoutes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_2__components_home_home_component__["a" /* HomeComponent */] // Default Route
+    },
+    { path: 'mypage',
+        component: __WEBPACK_IMPORTED_MODULE_34__contacts_list_contacts_list_component__["a" /* ContactsListComponent */]
+    },
+    { path: 'join-event/:_id',
+        component: __WEBPACK_IMPORTED_MODULE_38__components_join_event_join_event_component__["a" /* JoinEventComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]]
+    },
+    {
+        path: 'contact/:id',
+        component: __WEBPACK_IMPORTED_MODULE_35__contacts_detail_contacts_detail_component__["a" /* ContactsDetailComponent */],
+        resolve: {
+            contact: __WEBPACK_IMPORTED_MODULE_36__contact_resolve__["a" /* ContactResolve */]
+        }
     },
     {
         path: 'team-registration/:_id',
@@ -111,31 +131,27 @@ var appRoutes = [
     },
     {
         path: 'demo',
-        component: __WEBPACK_IMPORTED_MODULE_35__components_demo_demo_component__["a" /* DemoComponent */] // Default Route
+        component: __WEBPACK_IMPORTED_MODULE_33__components_demo_demo_component__["a" /* DemoComponent */] // Default Route
     },
     {
         path: 'eval-submit-evaluation-form/:evaluator_username/:_id',
-        component: __WEBPACK_IMPORTED_MODULE_34__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__["a" /* EvalSubmitEvaluationFormComponent */] // Default Route
+        component: __WEBPACK_IMPORTED_MODULE_32__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__["a" /* EvalSubmitEvaluationFormComponent */] // Default Route
     },
     {
         path: 'eval-teamwise-submissions/:event_title/:_id',
-        component: __WEBPACK_IMPORTED_MODULE_32__components_eval_teamwise_submissions_eval_teamwise_submissions_component__["a" /* EvalTeamwiseSubmissionsComponent */] // Default Route
-    },
-    {
-        path: 'user-teamwise-submissions/:event_title/:_id',
-        component: __WEBPACK_IMPORTED_MODULE_33__components_user_eventwise_submissions_user_eventwise_submissions_component__["a" /* UserEventwiseSubmissionsComponent */] // Default Route
+        component: __WEBPACK_IMPORTED_MODULE_31__components_eval_teamwise_submissions_eval_teamwise_submissions_component__["a" /* EvalTeamwiseSubmissionsComponent */] // Default Route
     },
     {
         path: 'eval-eventwise-registered-teams/:_id',
-        component: __WEBPACK_IMPORTED_MODULE_31__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__["a" /* EvalEventwiseRegisteredTeamsComponent */] // Default Route
-    },
-    {
-        path: 'submit-artifact/:_id',
-        component: __WEBPACK_IMPORTED_MODULE_30__components_submit_artifact_submit_artifact_component__["a" /* SubmitArtifactComponent */] // Default Route
+        component: __WEBPACK_IMPORTED_MODULE_30__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__["a" /* EvalEventwiseRegisteredTeamsComponent */] // Default Route
     },
     {
         path: 'event-page/:_id',
         component: __WEBPACK_IMPORTED_MODULE_27__components_event_page_event_page_component__["a" /* EventPageComponent */],
+        resolve: {
+            event: __WEBPACK_IMPORTED_MODULE_37__event_resolve__["a" /* EventResolve */]
+        },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]]
     },
     {
         path: 'configure-event/:_id',
@@ -342,24 +358,32 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_configure_event_configure_event_component__ = __webpack_require__("../../../../../src/app/components/configure-event/configure-event.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angular2_datetimepicker__ = __webpack_require__("../../../../angular2-datetimepicker/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_team_registration_team_registration_component__ = __webpack_require__("../../../../../src/app/components/team-registration/team-registration.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_submit_artifact_submit_artifact_component__ = __webpack_require__("../../../../../src/app/components/submit-artifact/submit-artifact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_appheader_appheader_component__ = __webpack_require__("../../../../../src/app/components/appheader/appheader.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__ = __webpack_require__("../../../../../src/app/components/eval-eventwise-registered-teams/eval-eventwise-registered-teams.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_eval_teamwise_submissions_eval_teamwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/eval-teamwise-submissions/eval-teamwise-submissions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_appmain_appmain_component__ = __webpack_require__("../../../../../src/app/components/appmain/appmain.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_user_eventwise_submissions_user_eventwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__ = __webpack_require__("../../../../../src/app/components/eval-submit-evaluation-form/eval-submit-evaluation-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_angular_2_dropdown_multiselect__ = __webpack_require__("../../../../angular-2-dropdown-multiselect/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_demo_demo_component__ = __webpack_require__("../../../../../src/app/components/demo/demo.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__services_get_token_service__ = __webpack_require__("../../../../../src/app/services/get-token.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_appheader_appheader_component__ = __webpack_require__("../../../../../src/app/components/appheader/appheader.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__ = __webpack_require__("../../../../../src/app/components/eval-eventwise-registered-teams/eval-eventwise-registered-teams.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_eval_teamwise_submissions_eval_teamwise_submissions_component__ = __webpack_require__("../../../../../src/app/components/eval-teamwise-submissions/eval-teamwise-submissions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_appmain_appmain_component__ = __webpack_require__("../../../../../src/app/components/appmain/appmain.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__ = __webpack_require__("../../../../../src/app/components/eval-submit-evaluation-form/eval-submit-evaluation-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_angular_2_dropdown_multiselect__ = __webpack_require__("../../../../angular-2-dropdown-multiselect/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_demo_demo_component__ = __webpack_require__("../../../../../src/app/components/demo/demo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__services_get_token_service__ = __webpack_require__("../../../../../src/app/services/get-token.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__contact_resolve__ = __webpack_require__("../../../../../src/app/contact.resolve.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__event_resolve__ = __webpack_require__("../../../../../src/app/event.resolve.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__contacts_list_contacts_list_component__ = __webpack_require__("../../../../../src/app/contacts-list/contacts-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__contacts_detail_contacts_detail_component__ = __webpack_require__("../../../../../src/app/contacts-detail/contacts-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_join_event_join_event_component__ = __webpack_require__("../../../../../src/app/components/join-event/join-event.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__services_server_name_service__ = __webpack_require__("../../../../../src/app/services/server-name.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -438,27 +462,30 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_34__components_event_page_event_page_component__["a" /* EventPageComponent */],
                 __WEBPACK_IMPORTED_MODULE_35__components_configure_event_configure_event_component__["a" /* ConfigureEventComponent */],
                 __WEBPACK_IMPORTED_MODULE_37__components_team_registration_team_registration_component__["a" /* TeamRegistrationComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_submit_artifact_submit_artifact_component__["a" /* SubmitArtifactComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_appheader_appheader_component__["a" /* AppheaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__["a" /* EvalEventwiseRegisteredTeamsComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_eval_teamwise_submissions_eval_teamwise_submissions_component__["a" /* EvalTeamwiseSubmissionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__components_appmain_appmain_component__["a" /* AppmainComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__components_user_eventwise_submissions_user_eventwise_submissions_component__["a" /* UserEventwiseSubmissionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__["a" /* EvalSubmitEvaluationFormComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__components_demo_demo_component__["a" /* DemoComponent */]
+                __WEBPACK_IMPORTED_MODULE_39__components_appheader_appheader_component__["a" /* AppheaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_eval_eventwise_registered_teams_eval_eventwise_registered_teams_component__["a" /* EvalEventwiseRegisteredTeamsComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_eval_teamwise_submissions_eval_teamwise_submissions_component__["a" /* EvalTeamwiseSubmissionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_appmain_appmain_component__["a" /* AppmainComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_eval_submit_evaluation_form_eval_submit_evaluation_form_component__["a" /* EvalSubmitEvaluationFormComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_demo_demo_component__["a" /* DemoComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__contacts_list_contacts_list_component__["a" /* ContactsListComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__contacts_detail_contacts_detail_component__["a" /* ContactsDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_join_event_join_event_component__["a" /* JoinEventComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_46_angular_2_dropdown_multiselect__["a" /* MultiselectDropdownModule */],
+                __WEBPACK_IMPORTED_MODULE_44_angular_2_dropdown_multiselect__["a" /* MultiselectDropdownModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"],
                 __WEBPACK_IMPORTED_MODULE_36_angular2_datetimepicker__["a" /* AngularDateTimePickerModule */],
-                __WEBPACK_IMPORTED_MODULE_39_ng2_file_upload__["FileUploadModule"]
+                __WEBPACK_IMPORTED_MODULE_38_ng2_file_upload__["FileUploadModule"]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_11__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_48__services_get_token_service__["a" /* GetTokenService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_16__guards_notAuth_guard__["a" /* NotAuthGuard */], __WEBPACK_IMPORTED_MODULE_17__guards_admin_auth_guard__["a" /* AdminAuthGuard */], __WEBPACK_IMPORTED_MODULE_18__guards_admin_notAuth_guard__["a" /* AdminNotAuthGuard */], __WEBPACK_IMPORTED_MODULE_21__guards_evaluator_auth_guard__["a" /* EvaluatorAuthGuard */], __WEBPACK_IMPORTED_MODULE_22__guards_evaluator_notAuth_guard__["a" /* EvaluatorNotAuthGuard */], __WEBPACK_IMPORTED_MODULE_19__guards_host_auth_guard__["a" /* HostAuthGuard */], __WEBPACK_IMPORTED_MODULE_20__guards_host_notAuth_guard__["a" /* HostNotAuthGuard */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_47__contact_resolve__["a" /* ContactResolve */], __WEBPACK_IMPORTED_MODULE_48__event_resolve__["a" /* EventResolve */], __WEBPACK_IMPORTED_MODULE_11__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_46__services_get_token_service__["a" /* GetTokenService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_16__guards_notAuth_guard__["a" /* NotAuthGuard */], __WEBPACK_IMPORTED_MODULE_17__guards_admin_auth_guard__["a" /* AdminAuthGuard */], __WEBPACK_IMPORTED_MODULE_18__guards_admin_notAuth_guard__["a" /* AdminNotAuthGuard */], __WEBPACK_IMPORTED_MODULE_21__guards_evaluator_auth_guard__["a" /* EvaluatorAuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_22__guards_evaluator_notAuth_guard__["a" /* EvaluatorNotAuthGuard */], __WEBPACK_IMPORTED_MODULE_19__guards_host_auth_guard__["a" /* HostAuthGuard */], __WEBPACK_IMPORTED_MODULE_20__guards_host_notAuth_guard__["a" /* HostNotAuthGuard */], __WEBPACK_IMPORTED_MODULE_52__services_server_name_service__["a" /* ServerNameService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -490,7 +517,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/add-event/add-event.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-register mx-auto mt-5\">\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n  </div>\n\n    <div class=\"card-header\">Register an Event</div>\n    <div class=\"card-body\">\n      <form [formGroup]=\"form\" (submit)=\"onEventRegisterSubmit()\">\n\t  \n        <div class=\"form-group\">\n        <label for=\"exampleInputUsername\">Event Title</label>\n        <div>\n         <input class=\"form-control\" name=\"event_title\" formControlName=\"event_title\" id=\"event_title\" type=\"text\" placeholder=\"Enter Event Title\">\n         <ul class=\"help-block\" style=\"color:red\">\n          <li *ngIf=\"form.controls.event_title.errors?.required && form.controls.event_title.dirty\">This field is required</li>\n          </ul>\n          </div>\n\t\t    </div>\n    \n        <div class=\"form-group\">\n          <label for=\"exampleInputUsername\">Host Name</label>\n          <div>\n            <select class=\"form-control\" formControlName=\"host_username\" name=\"host_username\" ngModel=\"noption\">\n              <option value=\"noption\" disabled>Select host</option>\n              <option *ngFor=\"let host of hosts\"  [value]=\"host.host_username\">\n                {{host.host_username}}\n              </option>\n            </select>\n            </div>\n          </div>\n        \n          \n          <div class=\"form-group\">\n            <label for=\"exampleInputUsername\">Event Description</label>\n            <div>\n             <input class=\"form-control\" name=\"event_description\" formControlName=\"event_description\" id=\"event_description\" type=\"text\" placeholder=\"Enter Event Description\">\n             <ul class=\"help-block\" style=\"color:red\">\n              <li *ngIf=\"form.controls.event_description.errors?.required && form.controls.event_description.dirty\">This field is required</li>\n              </ul>\n              </div>\n            </div>\n\n        <div class=\"text-center\">\n       <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n      </div>\n      </form>\n    </div>\n  </div>\n"
+module.exports = "<div class=\"card card-register mx-auto mt-5\">\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n  </div>\n\n    <div class=\"card-header\"><h3 style=\"text-align:center\">Register an Event</h3></div>\n    <div style=\"margin-left:5%;margin-right:5%\">\n      <form [formGroup]=\"form\" (submit)=\"onEventRegisterSubmit()\">\n\t  \n        <div class=\"form-group\">\n        <label for=\"exampleInputUsername\">Event Title</label>\n        <div>\n         <input class=\"form-control\" name=\"event_title\" formControlName=\"event_title\" id=\"event_title\" type=\"text\" placeholder=\"Enter Event Title\">\n         <ul class=\"help-block\" style=\"color:red\">\n          <li *ngIf=\"form.controls.event_title.errors?.required && form.controls.event_title.dirty\">This field is required</li>\n          </ul>\n          </div>\n\t\t    </div>\n    \n        <div class=\"form-group\">\n          <label for=\"exampleInputUsername\">Host Name</label>\n          <div>\n            <select class=\"form-control\" formControlName=\"host_username\" name=\"host_username\" ngModel=\"noption\">\n              <option value=\"noption\" disabled>Select host</option>\n              <option *ngFor=\"let host of hosts\"  [value]=\"host.host_username\">\n                {{host.host_username}}\n              </option>\n            </select>\n            </div>\n          </div>\n        \n          \n          <div class=\"form-group\">\n            <label for=\"exampleInputUsername\">Event Description</label>\n            <div>\n             <input class=\"form-control\" name=\"event_description\" formControlName=\"event_description\" id=\"event_description\" type=\"text\" placeholder=\"Enter Event Description\">\n             <ul class=\"help-block\" style=\"color:red\">\n              <li *ngIf=\"form.controls.event_description.errors?.required && form.controls.event_description.dirty\">This field is required</li>\n              </ul>\n              </div>\n            </div>\n\n        <div class=\"text-center\">\n       <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n      </div>\n      </form>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -613,7 +640,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-dashboard/admin-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<button class=\"btn btn-primary\" routerLink=\"/host-register\" routerLinkActive=\"active\">Add Host</button>\n<button class=\"btn btn-primary\" routerLink=\"/evaluator-register\" routerLinkActive=\"active\">Add Evaluator</button>\n<button class=\"btn btn-primary\" routerLink=\"/add-event\" routerLinkActive=\"active\">Add Event</button>\n<button class=\"btn btn-primary\" routerLink=\"/view-hosts\" routerLinkActive=\"active\">View Hosts</button>\n<button class=\"btn btn-primary\" routerLink=\"/view-events\" routerLinkActive=\"active\">View Events</button>\n"
+module.exports = "<!--ul>\n    <li><button class=\"btn btn-primary button\" routerLink=\"/host-register\" routerLinkActive=\"active\">Add Host</button></li>\n    <li><button class=\"btn btn-primary\" routerLink=\"/evaluator-register\" routerLinkActive=\"active\">Add Evaluator</button></li>\n    <li><button class=\"btn btn-primary\" routerLink=\"/add-event\" routerLinkActive=\"active\">Add Event</button></li>\n    <li><button class=\"btn btn-primary\" routerLink=\"/view-hosts\" routerLinkActive=\"active\">View Hosts</button></li>\n    <li><button class=\"btn btn-primary\" routerLink=\"/view-events\" routerLinkActive=\"active\">View Events</button></li>\n</ul-->\n\n<div class=\"content-wrapper\" style=\"height:100%\">\n        <div class=\"container\" style=\"height:100%\">\n            <section class=\"content-header\" >\n    \n            </section>\n            <section class=\"content\">\n                    <div style=\"display:flex;justify-content:space-around;margin-bottom:3%\">\n                            <button class=\"btn btn-primary\" routerLink=\"/add-event\" routerLinkActive=\"active\">Add Event</button>\n                            <button class=\"btn btn-primary\" routerLink=\"/host-register\" routerLinkActive=\"active\">Add Host</button>\n                            <button class=\"btn btn-primary\" routerLink=\"/evaluator-register\" routerLinkActive=\"active\">Add Evaluator</button>\n                    </div>\n                    <div class=\"nav-tabs-custom\">\n                            <ul class=\"nav nav-tabs\">\n                              <li class=\"active\"><a href=\"#tab_4\" data-toggle=\"tab\">View Hosts</a></li>\n                              <li><a href=\"#tab_5\" data-toggle=\"tab\">View Events</a></li>\n                            </ul>\n                            <div class=\"tab-content\">\n                              <div class=\"tab-pane active\" id=\"tab_4\">\n                                    <table class=\"table\" >\n                                            <thead>\n                                                <tr>\n                                                    <th >Host</th>\n                                                    <th >Email</th>\n                                                </tr>\n                                            </thead>\n                                            <tbody>\n                                                <tr *ngFor='let host of hosts'>\n                                          \n                                                    <td>{{ host.host_username }}</td>\n                                          <td>{{ host.host_email }}</td>\n                                          <td><a (click)=\"deleteHost(host._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n                                          \n                                                </tr>\n                                            </tbody>\n                                          </table>\n                                </div>\n                                <div class=\"tab-pane\" id=\"tab_5\">\n                                        <table class=\"table\">\n                                                <thead>\n                                                    <tr>\n                                                        <th >Title</th>\n                                                        <th >Host</th>\n                                                        <th >Description</th>\n                                                    </tr>\n                                                </thead>\n                                                <tbody>\n                                                    <tr *ngFor='let event of events'>\n                                              \n                                                        <td>{{ event.event_title }}</td>\n                                                        <td>{{ event.host_username }}</td>\n                                                        <td>{{ event.event_description }}</td>\n                                                        <td><a (click)=\"deleteEvent(event._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n                                              \n                                                    </tr>\n                                                </tbody>\n                                              </table>\n                                    </div>\n                            </div>\n                          </div>\n                    \n                          \n                          \n            </section>\n        </div>\n    </div>"
 
 /***/ }),
 
@@ -623,6 +650,7 @@ module.exports = "\n<button class=\"btn btn-primary\" routerLink=\"/host-registe
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminDashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -633,10 +661,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdminDashboardComponent = (function () {
-    function AdminDashboardComponent() {
+    function AdminDashboardComponent(authService) {
+        this.authService = authService;
+        this.events = new Array;
+        this.hosts = new Array;
     }
     AdminDashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.authService.getEvents().subscribe(function (events) { return _this.events = events.events; });
+        this.authService.getHosts().subscribe(function (hosts) { return _this.hosts = hosts; });
+    };
+    AdminDashboardComponent.prototype.deleteEvent = function (_id) {
+        var _this = this;
+        this.authService.deleteEvent(_id)
+            .subscribe(function (events) { return _this.events = events; }, function (err) { return console.log(err); });
+    };
+    AdminDashboardComponent.prototype.deleteHost = function (_id) {
+        var _this = this;
+        this.authService.deleteHost(_id)
+            .subscribe(function (hosts) { return _this.hosts = hosts; }, function (err) { return console.log(err); });
     };
     AdminDashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -644,7 +689,7 @@ var AdminDashboardComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
     ], AdminDashboardComponent);
     return AdminDashboardComponent;
 }());
@@ -674,7 +719,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-login/admin-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t<div class=\"login-logo\">\n\t\t\t\t<a href=\"../../index2.html\"><b>Admin Login</b></a>\n\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onAdminLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n            <label for=\"admin_username\">Admin username</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.admin_username.errors && form.controls.admin_username.dirty, 'has-success': form.controls.admin_username.valid && form.controls.admin_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"admin_username\" formControlName=\"admin_username\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.admin_username.errors?.required && form.controls.admin_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\">Password</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.admin_password.errors && form.controls.admin_password.dirty, 'has-success': form.controls.admin_password.valid && form.controls.admin_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"admin_password\" formControlName=\"admin_password\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.admin_password.errors?.required && form.controls.admin_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
+module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t<div class=\"login-logo\">\n\t\t\t\t<a href=\"../../index2.html\"><b>Admin Login</b></a>\n\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onAdminLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n            <label for=\"admin_username\"></label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.admin_username.errors && form.controls.admin_username.dirty, 'has-success': form.controls.admin_username.valid && form.controls.admin_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"admin_username\" formControlName=\"admin_username\" placeholder=\"Admin username\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.admin_username.errors?.required && form.controls.admin_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\"></label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.admin_password.errors && form.controls.admin_password.dirty, 'has-success': form.controls.admin_password.valid && form.controls.admin_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"admin_password\" formControlName=\"admin_password\" placeholder=\"Admin Password\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.admin_password.errors?.required && form.controls.admin_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
 
 /***/ }),
 
@@ -953,7 +998,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/configure-event/configure-event.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n        <div class=\"container\">\n            <section class=\"content-header\">\n                <h1>\n                                          Top Navigation\n                                          <small>Example 2.0</small>\n                                        </h1>\n                <ol class=\"breadcrumb\">\n                    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n                    <li><a href=\"#\">Layout</a></li>\n                    <li class=\"active\">Top Navigation</li>\n                </ol>\n            </section>\n    \n            <section class=\"content\">\n                <div class=\"box box-primary\">\n                    <div class=\"box-header with-border\">\n                        <h3 class=\"box-title\">Configure Event</h3>\n                    </div>\n    \n                    <div *ngIf=\"message\" [ngClass]=\"messageClass\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n                        <h4><i class=\"icon fa fa-check\"></i>{{ message }}</h4>\n                    </div>\n                    <!-- /.box-header -->\n                    <!-- form start -->\n    \n                    <div class=\"box-body\">\n    \n                        <div class=\"row\">\n                            <div class=\"col-xs-6\">\n                                <div class=\"form-group\">\n                                    <label for=\"exampleInputUsername\">Start Date and Time</label>\n                                    <angular2-date-picker [ngModelOptions]=\"{standalone: true}\" (onDateSelect)=\"onStartDateSelect($event)\" [(ngModel)]=\"start\" [settings]=\"settings\"></angular2-date-picker>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-6\">\n                                <div class=\"form-group\">\n                                    <label for=\"exampleInputUsername\">End Date and Time</label>\n                                    <angular2-date-picker [ngModelOptions]=\"{standalone: true}\" (onDateSelect)=\"onEndDateSelect($event)\" [(ngModel)]=\"end\" [settings]=\"settings\"></angular2-date-picker>\n                                </div>\n                            </div>\n                        </div>\n    \n                        <form [formGroup]=\"form\" (submit)=\"onConfigureRegisterSubmit()\">\n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Event Title</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.event_title\" name=\"event_title\" formControlName=\"event_title\" id=\"event_title\" type=\"text\" placeholder=\"Enter Event Title\">\n                                            <ul class=\"help-block\" style=\"color:red\">\n                                                <li *ngIf=\"form.controls.event_title.errors?.required && form.controls.event_title.dirty\">This field is required</li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Host Name</label>\n                                        <div>\n                                            <input class=\"form-control\" disabled [(ngModel)]=\"event.host_username\" formControlName=\"host_username\" name=\"host_username\" type=\"text\" ngModel=\"noption\">\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"location\">Location</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.location\" name=\"location\" formControlName=\"location\" id=\"location\" type=\"text\" placeholder=\"Enter Location\"> </div>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            <div class=\"form-group\">\n                                <label for=\"exampleInputUsername\">Event Description</label>\n                                <div>\n                                    <textarea class=\"form-control\" [(ngModel)]=\"event.event_description\" name=\"event_description\" formControlName=\"event_description\" id=\"event_description\" rows=\"2\" placeholder=\"Enter Event Description\"></textarea>\n    \n                                    <ul class=\"help-block\" style=\"color:red\">\n                                        <li *ngIf=\"form.controls.event_description.errors?.required && form.controls.event_description.dirty\">This field is required</li>\n                                    </ul>\n                                </div>\n                            </div>\n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"max_team_members\">Max Team Members</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.max_team_members\" name=\"max_team_members\" formControlName=\"max_team_members\" id=\"max_team_members\" type=\"number\" placeholder=\"Enter number of maximum team members\">\n    \n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"max_ideas\">Max number of ideas</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.max_ideas\" name=\"max_ideas\" formControlName=\"max_ideas\" id=\"max_ideas\" type=\"number\" placeholder=\"Enter number of maximum ideas that can be supported\">\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"prize\">Prize</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.prize\" name=\"prize\" formControlName=\"prize\" id=\"prize\" type=\"number\" placeholder=\"Enter prize money\">\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-6\">\n                                        <div class=\"form-group\">\n                                                <label for=\"location\">Evaluators</label>\n                                                <div *ngFor=\"let evaluator of evaluators\">\n                                                    <input type=\"checkbox\" (change)=\"onChange(evaluator.evaluator_username, $event.target.checked)\"> {{evaluator.evaluator_username}}\n                                                </div>\n                                            </div>\n\n                                </div>\n                                <div class=\"col-xs-6\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Publish</label>\n                                        <div>\n                                            <select class=\"form-control\" formControlName=\"publish\" name=\"publish\" [(ngModel)]=\"event.publish\">\n                                                <option value=\"yes\">Yes</option>\n                                                <option value=\"no\">No</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            \n    \n                            <div class=\"box-footer\">\n                                <button [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Submit</button>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n    \n            </section>\n        </div>\n    </div>"
+module.exports = "<div class=\"content-wrapper\">\n        <div class=\"container\">\n            <!--section class=\"content-header\">\n                <h1>\n                                          Top Navigation\n                                        </h1>\n                <ol class=\"breadcrumb\">\n                    <li><a href=\"#\"><i class=\"fa fa-dashboard\"></i> Home</a></li>\n                    <li><a href=\"#\">Layout</a></li>\n                    <li class=\"active\">Top Navigation</li>\n                </ol>\n            </section-->\n    \n            <section class=\"content\">\n                <div class=\"box box-primary\">\n                    <div class=\"box-header with-border\">\n                        <h3 class=\"box-title\">Configure Event</h3>\n                    </div>\n    \n                    <div *ngIf=\"message\" [ngClass]=\"messageClass\">\n                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n                        <h4><i class=\"icon fa fa-check\"></i>{{ message }}</h4>\n                    </div>\n                    <!-- /.box-header -->\n                    <!-- form start -->\n    \n                    <div class=\"box-body\">\n    \n                        <div class=\"row\">\n                            <div class=\"col-xs-6\">\n                                <div class=\"form-group\">\n                                    <label for=\"exampleInputUsername\">Start Date and Time</label>\n                                    <angular2-date-picker [ngModelOptions]=\"{standalone: true}\" (onDateSelect)=\"onStartDateSelect($event)\" [(ngModel)]=\"start\" [settings]=\"settings\"></angular2-date-picker>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-6\">\n                                <div class=\"form-group\">\n                                    <label for=\"exampleInputUsername\">End Date and Time</label>\n                                    <angular2-date-picker [ngModelOptions]=\"{standalone: true}\" (onDateSelect)=\"onEndDateSelect($event)\" [(ngModel)]=\"end\" [settings]=\"settings\"></angular2-date-picker>\n                                </div>\n                            </div>\n                        </div>\n    \n                        <form [formGroup]=\"form\" (submit)=\"onConfigureRegisterSubmit()\">\n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Event Title</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.event_title\" name=\"event_title\" formControlName=\"event_title\" id=\"event_title\" type=\"text\" placeholder=\"Enter Event Title\">\n                                            <ul class=\"help-block\" style=\"color:red\">\n                                                <li *ngIf=\"form.controls.event_title.errors?.required && form.controls.event_title.dirty\">This field is required</li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Host Name</label>\n                                        <div>\n                                            <input class=\"form-control\" disabled [(ngModel)]=\"event.host_username\" formControlName=\"host_username\" name=\"host_username\" type=\"text\" ngModel=\"noption\">\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"location\">Location</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.location\" name=\"location\" formControlName=\"location\" id=\"location\" type=\"text\" placeholder=\"Enter Location\"> </div>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            <div class=\"form-group\">\n                                <label for=\"exampleInputUsername\">Event Description</label>\n                                <div>\n                                    <textarea class=\"form-control\" [(ngModel)]=\"event.event_description\" name=\"event_description\" formControlName=\"event_description\" id=\"event_description\" rows=\"2\" placeholder=\"Enter Event Description\"></textarea>\n    \n                                    <ul class=\"help-block\" style=\"color:red\">\n                                        <li *ngIf=\"form.controls.event_description.errors?.required && form.controls.event_description.dirty\">This field is required</li>\n                                    </ul>\n                                </div>\n                            </div>\n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"max_team_members\">Max Team Members</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.max_team_members\" name=\"max_team_members\" formControlName=\"max_team_members\" id=\"max_team_members\" type=\"number\" placeholder=\"Enter number of maximum team members\">\n    \n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label for=\"max_ideas\">Max number of ideas</label>\n                                        <div>\n                                            <input class=\"form-control\" [(ngModel)]=\"event.max_ideas\" name=\"max_ideas\" formControlName=\"max_ideas\" id=\"max_ideas\" type=\"number\" placeholder=\"Enter number of maximum ideas that can be supported\">\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-4 col-xs-12\">\n                                        <div class=\"form-group\">\n                                            <label for=\"prize1\">First Prize</label>\n                                            <div>\n                                                <input class=\"form-control\" [(ngModel)]=\"event.prize1\" name=\"prize1\" formControlName=\"prize1\" id=\"prize1\" type=\"text\" placeholder=\"Enter first prize\">\n        \n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-lg-4 col-xs-12\">\n                                        <div class=\"form-group\">\n                                            <label for=\"prize1\">Second Prize</label>\n                                            <div>\n                                                <input class=\"form-control\" [(ngModel)]=\"event.prize2\" name=\"prize2\" formControlName=\"prize2\" id=\"prize2\" type=\"text\" placeholder=\"Enter second prize\">\n        \n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-lg-4 col-xs-12\">\n                                        <div class=\"form-group\">\n                                            <label for=\"prize3\">Third Prize</label>\n                                            <div>\n                                                <input class=\"form-control\" [(ngModel)]=\"event.prize3\" name=\"prize3\" formControlName=\"prize3\" id=\"prize3\" type=\"text\" placeholder=\"Enter third prize\">\n        \n                                            </div>\n                                        </div>\n                                    </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-lg-4 col-xs-12\">\n                                    <div class=\"form-group\">\n                                        <label for=\"prize1\">Winner</label>\n                                        <div>\n                                            <select class=\"form-control\" formControlName=\"winner1\" name=\"winner1\" [ngModel]=\"event.winner1\">\n                                                <option *ngFor=\"let team of teams\" [value]=\"team.team_name\">\n                                                  {{team.team_name}}\n                                                </option>\n                                              </select>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-4 col-xs-12\">\n                                    <div class=\"form-group\">\n                                        <label for=\"prize1\">Second Place</label>\n                                        <div>\n                                            <select class=\"form-control\" formControlName=\"winner2\" name=\"winner2\" [ngModel]=\"event.winner2\">\n                                                <option *ngFor=\"let team of teams\" [value]=\"team.team_name\">\n                                                  {{team.team_name}}\n                                                </option>\n                                              </select>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-4 col-xs-12\">\n                                    <div class=\"form-group\">\n                                        <label for=\"prize3\">Third Place</label>\n                                        <div>\n\n                                            <select class=\"form-control\" formControlName=\"winner3\" name=\"winner3\" [ngModel]=\"event.winner3\">\n                                                <option *ngFor=\"let team of teams\" [value]=\"team.team_name\">\n                                                  {{team.team_name}}\n                                                </option>\n                                              </select>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            \n                            \n    \n                            <div class=\"row\">\n                                <div class=\"col-xs-6\">\n                                    <div class=\"form-group\">\n                                        <label for=\"location\">Evaluator</label>\n                                            <select class=\"form-control\" formControlName=\"evaluator_username\" name=\"evaluator_username\" [ngModel]=\"event.evaluator_username\">\n                                                <option *ngFor=\"let evaluator of evaluators\" [value]=\"evaluator.evaluator_username\">\n                                                  {{evaluator.evaluator_username}}\n                                                </option>\n                                            </select>\n                                    </div>\n\n                                </div>\n                                <div class=\"col-xs-6\">\n                                    <div class=\"form-group\">\n                                        <label for=\"exampleInputUsername\">Publish</label>\n                                        <div>\n                                            <select class=\"form-control\" formControlName=\"publish\" name=\"publish\" [(ngModel)]=\"event.publish\">\n                                                <option value=\"yes\">Yes</option>\n                                                <option value=\"no\">No</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n    \n                            \n    \n                            <div class=\"box-footer\">\n                                <button [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Submit</button>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n    \n            </section>\n        </div>\n    </div>"
 
 /***/ }),
 
@@ -987,6 +1032,9 @@ var ConfigureEventComponent = (function () {
         this.router = router;
         this.event = {};
         this.evaluators = new Array;
+        this.host_username = null;
+        this.event_description = null;
+        this.teams = new Array;
         this.processing = false;
         this.settings = {
             bigBanner: true,
@@ -1006,15 +1054,19 @@ var ConfigureEventComponent = (function () {
     ConfigureEventComponent.prototype.createForm = function () {
         this.form = this.formBuilder.group({
             event_title: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-            host_username: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
             event_description: [''],
+            host_username: [''],
             location: [''],
             max_team_members: [''],
             max_ideas: [''],
-            prize: [''],
+            prize1: [''],
+            prize2: [''],
+            prize3: [''],
+            winner1: [''],
+            winner2: [''],
+            winner3: [''],
             publish: [''],
-            hello: [''],
-            evaluators_array: this.formBuilder.array([])
+            evaluator_username: ['']
         });
     };
     ConfigureEventComponent.prototype.onChange = function (evaluator_username, isChecked) {
@@ -1031,7 +1083,7 @@ var ConfigureEventComponent = (function () {
         var _this = this;
         var updated_event = {
             event_title: this.form.get('event_title').value,
-            host_username: this.form.get('host_username').value,
+            host_username: JSON.parse(localStorage.getItem('host')).host_username,
             event_description: this.form.get('event_description').value,
             start: this.start_date,
             end: this.end_date,
@@ -1039,10 +1091,14 @@ var ConfigureEventComponent = (function () {
             _id: this.event._id,
             max_team_members: this.form.get('max_team_members').value,
             max_ideas: this.form.get('max_ideas').value,
-            prize: this.form.get('prize').value,
+            prize1: this.form.get('prize1').value,
+            prize2: this.form.get('prize2').value,
+            prize3: this.form.get('prize3').value,
+            winner1: this.form.get('winner1').value,
+            winner2: this.form.get('winner2').value,
+            winner3: this.form.get('winner3').value,
             publish: this.form.get('publish').value,
-            hello: this.form.get('hello').value,
-            evaluators_array: this.form.get('evaluators_array').value,
+            evaluator_username: this.form.get('evaluator_username').value,
         };
         console.log(updated_event);
         this.authService.updateEvent(updated_event)
@@ -1053,15 +1109,24 @@ var ConfigureEventComponent = (function () {
         this.route.params.forEach(function (params) {
             _this._id = params['_id'];
         });
+        this.authService.getHostEventwiseTeams(this._id).subscribe(function (teams) {
+            _this.teams = teams;
+        });
         this.authService.getEvent(this._id).subscribe(function (event) {
+            event = event.event;
+            console.log("event is :" + JSON.stringify(event));
             _this.event = event;
+            console.log("event host is:" + _this.event.host_username);
             _this.start = event.start;
             _this.end = event.end;
             _this.start_date = event.start;
             _this.end_date = event.end;
+            _this.host_username = event.host_username;
+            _this.event_description = event.event_description;
         });
         this.authService.getEvaluators().subscribe(function (evaluators) {
             _this.evaluators = evaluators;
+            console.log(_this.evaluators);
         });
     };
     ConfigureEventComponent = __decorate([
@@ -1103,7 +1168,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "        <table >\n            <thead>\n                <tr>\n                    <th >Username</th>\n\t\t\t\t\t<th >Email</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor='let user of users'>\n\n                    <td>{{ user.username }}</td>\n\t\t\t\t\t<td>{{ user.email }}</td>\n\t\t\t\t\t<td><a (click)=\"deleteUser(user._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n\t\t\t\t\t\n                </tr>\n            </tbody>\n        </table>"
+module.exports = ""
 
 /***/ }),
 
@@ -1113,39 +1178,24 @@ module.exports = "        <table >\n            <thead>\n                <tr>\n 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
 
 var DashboardComponent = (function () {
-    function DashboardComponent(authService) {
-        this.authService = authService;
-        this.users = new Array;
+    function DashboardComponent() {
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.authService.getUsers().subscribe(function (users) { return _this.users = users; });
-    };
-    DashboardComponent.prototype.deleteUser = function (_id) {
-        var _this = this;
-        this.authService.deleteUser(_id)
-            .subscribe(function (users) { return _this.users = users; }, function (err) { return console.log(err); });
     };
     DashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
+        })
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -1226,7 +1276,7 @@ var DemoComponent = (function () {
             this.tokenService.getToken(this.params.code).subscribe(function (success) {
                 _this.authService.storeLinkedInData(success.json().myToken, success.json().message, success.json().user);
                 console.log(success.json());
-                _this.router.navigate(['/profile']);
+                _this.router.navigate(['/home']);
             }, function (error) { console.log("ERROR: " + error); return; });
         }
         if (this.accessResponse != null) {
@@ -1269,7 +1319,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/eval-eventwise-registered-teams/eval-eventwise-registered-teams.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Registered teams</h2>\n<table  class=\"table table-bordered table-hover table-sm table-responsive\"  >\n    <thead>\n        <tr>\n            <th >username</th>\n            <th >Team name</th>\n            <th >Team ID</th>\n            <th >Event ID</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor='let team of teams'>\n  \n            <td>{{ team.username }}</td>\n            <td>{{ team.team_name }}</td>\n            <td>{{ team._id }}</td>  \n            <td>{{ team.event_id }}</td>  \n            <td><a [routerLink]=\"['/eval-teamwise-submissions',team.event_title,team._id]\" class=\"btn btn-xs btn-primary\">View Submissions</a></td>\n            <td><a [routerLink]=\"['/eval-submit-evaluation-form',evaluator_username,team._id]\" class=\"btn btn-xs btn-primary\">Submit Evaluation Form</a></td>\n            \n        </tr>\n    </tbody>\n  </table>"
+module.exports = "<div class=\"content-wrapper\">\n        <div class=\"container\">\n    \n            <section class=\"content\">\n                <div class=\"box\">\n                    <div class=\"box-header\">\n                        <h3 class=\"box-title\">Registered teams</h3>\n                    </div>\n                    <div class=\"box-body no-padding\">\n                        <table class=\"table table-condensed\">\n                            <tr>\n                                <th>username</th>\n                                <th>Team name</th>\n                            </tr>\n                            <tr *ngFor='let team of teams'>\n    \n                                <td>{{ team.username }}</td>\n                                <td>{{ team.team_name }}</td>\n                                <td><a [routerLink]=\"['/eval-teamwise-submissions',team.event_title,team._id]\" class=\"btn btn-xs btn-primary\">View Submissions</a></td>\n                                <td><a [routerLink]=\"['/eval-submit-evaluation-form',evaluator_username,team._id]\" class=\"btn btn-xs btn-primary\">Submit Evaluation Form</a></td>\n    \n                            </tr>\n                        </table>\n                    </div>\n    \n                </div>\n            </section>\n        </div>\n    </div>"
 
 /***/ }),
 
@@ -1349,7 +1399,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/eval-submit-evaluation-form/eval-submit-evaluation-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-register mx-auto mt-5\">\n      \n        <div class=\"card-header\">Evaluation Form</div>\n    \n        <div class=\"card-body\">\n            <form [formGroup]=\"form\" (submit)=\"onEvaluationFormSubmit()\">\n    \n                \n                <div class=\"form-group\">\n                    <label for=\"exampleInputUsername\">Criteria 1</label>\n                    <div>\n                        <input class=\"form-control\" [(ngModel)]=\"data.criteria1\" name=\"criteria1\" formControlName=\"criteria1\" id=\"criteria1\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                        <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.criteria1.errors?.required && form.controls.criteria1.dirty\">This field is required</li>\n                        </ul>\n                    </div>\n                </div>\n    \n                <div class=\"form-group\">\n                    <label for=\"exampleInputUsername\">Criteria 2</label>\n                    <div>\n                        <input class=\"form-control\" [(ngModel)]=\"data.criteria2\" name=\"criteria2\" formControlName=\"criteria2\" id=\"event_description\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                        <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.criteria2.errors?.required && form.controls.criteria2.dirty\">This field is required</li>\n                        </ul>\n                    </div>\n                </div>\n\n                <div class=\"form-group\">\n                    <label for=\"exampleInputUsername\">Criteria 3</label>\n                    <div>\n                        <input class=\"form-control\" [(ngModel)]=\"data.criteria3\" name=\"criteria3\" formControlName=\"criteria3\" id=\"criteria3\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                        <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.criteria3.errors?.required && form.controls.criteria3.dirty\">This field is required</li>\n                        </ul>\n                    </div>\n                </div>\n\n                <div class=\"form-group\">\n                    <label for=\"exampleInputUsername\">Comments</label>\n                    <div>\n                        <input class=\"form-control\" [(ngModel)]=\"data.comments\" name=\"comments\" formControlName=\"comments\" id=\"comments\" type=\"textarea\" placeholder=\"Enter comments\">\n                        <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.comments.errors?.required && form.controls.comments.dirty\">This field is required</li>\n                        </ul>\n                    </div>\n                </div>\n    \n                <div class=\"text-center\">\n                    <button [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Submit</button>\n                </div>\n            </form>\n        </div>\n    </div>"
+module.exports = "<div class=\"content-wrapper\">\n        <div class=\"container\">\n                <section class=\"content\">\n                        <div class=\"box box-primary\" style=\"width:800px; margin:0 auto\">\n                                <div class=\"box-header with-border\">\n                                        <h3 class=\"box-title\">Evaluation Form</h3>\n                                </div>\n                                <form [formGroup]=\"form\" (submit)=\"onEvaluationFormSubmit()\">\n                                \n                                <div class=\"box-body\">\n                                        <div class=\"form-group\">\n                                                <label for=\"exampleInputUsername\">Criteria 1</label>\n                                                <div>\n                                                    <input class=\"form-control\" [(ngModel)]=\"data.criteria1\" name=\"criteria1\" formControlName=\"criteria1\" id=\"criteria1\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                                                    <ul class=\"help-block\" style=\"color:red\">\n                                                        <li *ngIf=\"form.controls.criteria1.errors?.required && form.controls.criteria1.dirty\">This field is required</li>\n                                                    </ul>\n                                                </div>\n                                            </div>\n                                \n                                            <div class=\"form-group\">\n                                                <label for=\"exampleInputUsername\">Criteria 2</label>\n                                                <div>\n                                                    <input class=\"form-control\" [(ngModel)]=\"data.criteria2\" name=\"criteria2\" formControlName=\"criteria2\" id=\"event_description\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                                                    <ul class=\"help-block\" style=\"color:red\">\n                                                        <li *ngIf=\"form.controls.criteria2.errors?.required && form.controls.criteria2.dirty\">This field is required</li>\n                                                    </ul>\n                                                </div>\n                                            </div>\n                            \n                                            <div class=\"form-group\">\n                                                <label for=\"exampleInputUsername\">Criteria 3</label>\n                                                <div>\n                                                    <input class=\"form-control\" [(ngModel)]=\"data.criteria3\" name=\"criteria3\" formControlName=\"criteria3\" id=\"criteria3\" type=\"number\" placeholder=\"Enter rating on a scale of 1 to 10\">\n                                                    <ul class=\"help-block\" style=\"color:red\">\n                                                        <li *ngIf=\"form.controls.criteria3.errors?.required && form.controls.criteria3.dirty\">This field is required</li>\n                                                    </ul>\n                                                </div>\n                                            </div>\n                            \n                                            <div class=\"form-group\">\n                                                <label for=\"exampleInputUsername\">Comments</label>\n                                                <div>\n                                                    <input class=\"form-control\" [(ngModel)]=\"data.comments\" name=\"comments\" formControlName=\"comments\" id=\"comments\" type=\"textarea\" placeholder=\"Enter comments\">\n                                                    <ul class=\"help-block\" style=\"color:red\">\n                                                        <li *ngIf=\"form.controls.comments.errors?.required && form.controls.comments.dirty\">This field is required</li>\n                                                    </ul>\n                                                </div>\n                                            </div>\n                                \n                                            <div class=\"text-center\">\n                                                <button [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Submit</button>\n                                            </div>\n                                            \n                                </div>        \n                        </form>\n                    </div>\n                </section>\n                </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -1404,7 +1454,7 @@ var EvalSubmitEvaluationFormComponent = (function () {
             criteria1: this.form.get('criteria1').value,
             criteria2: this.form.get('criteria2').value,
             criteria3: this.form.get('criteria3').value,
-            comments: this.form.get('comments').value
+            comments: this.form.get('comments').value,
         };
         this.authService.updateEvaluationData(updatedEvaluationData)
             .subscribe(function (data) { return _this._location.back(); }, function (err) { return console.log(err); });
@@ -1415,7 +1465,7 @@ var EvalSubmitEvaluationFormComponent = (function () {
             _this._id = params['_id'];
             _this.evaluator_username = params['evaluator_username'];
         });
-        this.authService.getEvaluationData(this._id).subscribe(function (data) {
+        this.authService.getEvaluationData(this._id, this.evaluator_username).subscribe(function (data) {
             _this.data = data;
             console.log(data);
         });
@@ -1539,7 +1589,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/evaluator-dashboard/evaluator-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Evaluator Dashboard</h2>\n<table  class=\"table table-bordered table-hover table-sm table-responsive\"  >\n    <thead>\n        <tr>\n            <th >Title</th>\n            <th >Host</th>\n            <th >Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor='let evaluator_event of evaluator_events'>\n  \n            <td><a [routerLink]=\"['/eval-eventwise-registered-teams',evaluator_event._id]\">{{ evaluator_event.event_title }}</a></td>\n            <td>{{ evaluator_event.host_username }}</td>\n            <td>{{ evaluator_event.event_description }}</td>\n            \n  \n        </tr>\n    </tbody>\n  </table>"
+module.exports = "<div class=\"content-wrapper\">\n        <div class=\"container\">\n    \n            <section class=\"content\">\n                <div class=\"box\">\n                    <div class=\"box-header\">\n                        <h3 class=\"box-title\">Evaluator Dashboard</h3>\n                    </div>\n                    <!-- /.box-header -->\n                    <div class=\"box-body\">\n                        <table class=\"table table-condensed\">\n                            <tr>\n                                <th>Title</th>\n                                <th>Host</th>\n                                <th>Description</th>\n                            </tr>\n                            <tr *ngFor='let evaluator_event of evaluator_events'>\n    \n                                <td><a [routerLink]=\"['/eval-eventwise-registered-teams',evaluator_event._id]\">{{ evaluator_event.event_title }}</a></td>\n                                <td>{{ evaluator_event.host_username }}</td>\n                                <td>{{ evaluator_event.event_description }}</td>\n    \n                            </tr>\n                        </table>\n                    </div>\n                    <!-- /.box-body -->\n                </div>\n    \n            </section>\n    \n        </div>\n    </div>"
 
 /***/ }),
 
@@ -1611,7 +1661,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/evaluator-login/evaluator-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t<div class=\"login-logo\">\n\t\t\t\t<a href=\"../../index2.html\"><b>Evaluator Login</b></a>\n\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\t\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onEvaluatorLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n            <label for=\"evaluator_username\">Evaluator username</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.evaluator_username.errors && form.controls.evaluator_username.dirty, 'has-success': form.controls.evaluator_username.valid && form.controls.evaluator_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"evaluator_username\" formControlName=\"evaluator_username\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.evaluator_username.errors?.required && form.controls.evaluator_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\">Password</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.evaluator_password.errors && form.controls.evaluator_password.dirty, 'has-success': form.controls.evaluator_password.valid && form.controls.evaluator_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"evaluator_password\" formControlName=\"evaluator_password\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.evaluator_password.errors?.required && form.controls.evaluator_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
+module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t<div class=\"login-logo\">\n\t\t\t\t<a href=\"../../index2.html\"><b>Evaluator Login</b></a>\n\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\t\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onEvaluatorLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.evaluator_username.errors && form.controls.evaluator_username.dirty, 'has-success': form.controls.evaluator_username.valid && form.controls.evaluator_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"evaluator_username\" formControlName=\"evaluator_username\" placeholder=\"Evaluator username\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.evaluator_username.errors?.required && form.controls.evaluator_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.evaluator_password.errors && form.controls.evaluator_password.dirty, 'has-success': form.controls.evaluator_password.valid && form.controls.evaluator_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"evaluator_password\" formControlName=\"evaluator_password\" placeholder=\"Evaluator Password\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.evaluator_password.errors?.required && form.controls.evaluator_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
 
 /***/ }),
 
@@ -1744,7 +1794,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/evaluator-register/evaluator-register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-register mx-auto mt-5\">\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n  </div>\n\n    <div class=\"card-header\">Register a Evaluator Account</div>\n    <div class=\"card-body\">\n      <form [formGroup]=\"form\" (submit)=\"onEvaluatorRegisterSubmit()\">\n\t  \n        <div class=\"form-group\">\n        <label for=\"exampleInputUsername\">Evaluator Username</label>\n        <div  [ngClass]=\"{'has-error': (form.controls.evaluator_username.errors && form.controls.evaluator_username.dirty), 'has-success': !form.controls.evaluator_username.errors}\">\n         <input class=\"form-control\" name=\"evaluator_username\" formControlName=\"evaluator_username\" id=\"evaluator_username\" type=\"text\" placeholder=\"Enter Evaluator Username\">\n         <ul class=\"help-block\" style=\"color:red\">\n          <li *ngIf=\"form.controls.evaluator_username.errors?.required && form.controls.evaluator_username.dirty\">This field is required</li>\n              <li *ngIf=\"form.controls.evaluator_username.errors?.minlength && form.controls.evaluator_username.dirty || form.controls.evaluator_username.errors?.maxlength && form.controls.evaluator_username.dirty \">Minimum characters: 3, Maximum characters: 15</li>\n              <li *ngIf=\"form.controls.evaluator_username.errors?.validateUsername && form.controls.evaluator_username.dirty\">Username must not have any special characters</li>\n             \n          </ul>\n           </div>\n\t\t    </div>\n\t\t\n        <div class=\"form-group\">\n         <label for=\"exampleInputEmail1\">Evaluator Email address</label>\n         <div  [ngClass]=\"{'has-error': (form.controls.evaluator_email.errors && form.controls.evaluator_email.dirty), 'has-success': !form.controls.evaluator_email.errors}\">\n            <input class=\"form-control\" name=\"evaluator_email\" formControlName=\"evaluator_email\" id=\"exampleInputEmail1\" type=\"email\" placeholder=\"Enter Evaluator Email\">\n            <ul class=\"help-block\" style=\"color:red\">\n              <li *ngIf=\"form.controls.evaluator_email.errors?.required && form.controls.evaluator_email.dirty\">This field is required</li>\n                  <li *ngIf=\"(form.controls.evaluator_email.errors?.minlength && form.controls.evaluator_email.dirty || form.controls.evaluator_email.errors?.maxlength && form.controls.evaluator_email.dirty ) && form.controls.evaluator_email.dirty\">Minimum characters: 5, Maximum characters: 30</li>\n                  <li *ngIf=\"form.controls.evaluator_email.errors?.validateEmail && form.controls.evaluator_email.dirty\">This must be a valid e-mail</li>\n               </ul>\n               </div>\n          </div>\n          \n        <div class=\"form-group\">\n          <div class=\"form-row\">\n            <div class=\"col-md-6\">\n            <label for=\"evaluator_password\">Evaluator Password</label>\n            <div  [ngClass]=\"{'has-error': (form.controls.evaluator_password.errors && form.controls.evaluator_password.dirty), 'has-success': !form.controls.evaluator_password.errors}\">\n     \t\t      <input class=\"form-control\" name=\"evaluator_password\" formControlName=\"evaluator_password\" id=\"evaluator_password\" type=\"password\" placeholder=\"Enter evaluator password\">\n              <ul class=\"help-block\" style=\"color:red\">\n                  <li *ngIf=\"form.controls.evaluator_password.errors?.required && form.controls.evaluator_password.dirty\">This field is required</li>\n                  <li *ngIf=\"form.controls.evaluator_password.errors?.minlength && form.controls.evaluator_password.dirty || form.controls.evaluator_password.errors?.maxlength && form.controls.evaluator_password.dirty \">Minimum characters: 8, Maximum characters: 35</li>\n               </ul>\n            </div>\n          </div>\n            <div class=\"col-md-6\">\n             <label for=\"evaluator_confirm\">Confirm Password</label>\n             <div [ngClass]=\"{'has-error': (form.controls.evaluator_confirm.errors && form.controls.evaluator_confirm.dirty) || (form.errors?.matchingPasswords && form.controls.evaluator_confirm.dirty), 'has-success': !form.controls.evaluator_confirm.errors && !form.errors?.matchingPasswords}\">\n              <input class=\"form-control\" name=\"evaluator_confirm\" formControlName=\"evaluator_confirm\" id=\"evaluator_confirm\" type=\"password\" placeholder=\"Confirm evaluator password\">\n               <ul class=\"help-block\" style=\"color:red\">\n\t\t\t        \t<li *ngIf=\"form.controls.evaluator_confirm.errors?.required && form.controls.evaluator_confirm.dirty\">This field is required</li>\n\t\t\t        \t<li *ngIf=\"form.errors?.matchingPasswords && form.controls.evaluator_confirm.dirty\">Password do not match</li>\n\t\t\t\t      </ul>\n            </div>\n          </div>\n        </div>\n        </div>\n\n        <div class=\"text-center\">\n       <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n      </div>\n      </form>\n    </div>\n  </div>\n"
+module.exports = "<div class=\"content-wrapper\" style=\"height:100%\">\n    <div class=\"container\">\n        <section class=\"content\">\n            <div class=\"box box-primary\" style=\"width:500px;margin:0 auto\">\n                <div class=\"box-header with-border\">\n                  <h3 class=\"box-title\">Add a Evaluator</h3>\n                </div>\n                <!-- /.box-header -->\n                <!-- form start -->\n                <form role=\"form\" [formGroup]=\"form\" (submit)=\"onEvaluatorRegisterSubmit()\">\n                  <div class=\"box-body\">\n            \n                      <div class=\"form-group\">\n                          <label for=\"exampleInputUsername\">Evaluator Username</label>\n                          <div  [ngClass]=\"{'has-error': (form.controls.evaluator_username.errors && form.controls.evaluator_username.dirty), 'has-success': !form.controls.evaluator_username.errors}\">\n                           <input class=\"form-control\" name=\"evaluator_username\" formControlName=\"evaluator_username\" id=\"evaluator_username\" type=\"text\" placeholder=\"Enter Evaluator Username\">\n                           <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.evaluator_username.errors?.required && form.controls.evaluator_username.dirty\">This field is required</li>\n                                <li *ngIf=\"form.controls.evaluator_username.errors?.minlength && form.controls.evaluator_username.dirty || form.controls.evaluator_username.errors?.maxlength && form.controls.evaluator_username.dirty \">Minimum characters: 3, Maximum characters: 15</li>\n                                <li *ngIf=\"form.controls.evaluator_username.errors?.validateUsername && form.controls.evaluator_username.dirty\">Username must not have any special characters</li>\n                               \n                            </ul>\n                             </div>\n                          </div>\n                      \n                          <div class=\"form-group\">\n                              <label for=\"exampleInputEmail1\">Evaluator Email address</label>\n                              <div  [ngClass]=\"{'has-error': (form.controls.evaluator_email.errors && form.controls.evaluator_email.dirty), 'has-success': !form.controls.evaluator_email.errors}\">\n                                 <input class=\"form-control\" name=\"evaluator_email\" formControlName=\"evaluator_email\" id=\"exampleInputEmail1\" type=\"email\" placeholder=\"Enter Evaluator Email\">\n                                 <ul class=\"help-block\" style=\"color:red\">\n                                   <li *ngIf=\"form.controls.evaluator_email.errors?.required && form.controls.evaluator_email.dirty\">This field is required</li>\n                                       <li *ngIf=\"(form.controls.evaluator_email.errors?.minlength && form.controls.evaluator_email.dirty || form.controls.evaluator_email.errors?.maxlength && form.controls.evaluator_email.dirty ) && form.controls.evaluator_email.dirty\">Minimum characters: 5, Maximum characters: 30</li>\n                                       <li *ngIf=\"form.controls.evaluator_email.errors?.validateEmail && form.controls.evaluator_email.dirty\">This must be a valid e-mail</li>\n                                    </ul>\n                                    </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"row\">\n                                  <div class=\"col-md-6\">\n                                      <label for=\"evaluator_password\">Evaluator Password</label>\n                                      <div  [ngClass]=\"{'has-error': (form.controls.evaluator_password.errors && form.controls.evaluator_password.dirty), 'has-success': !form.controls.evaluator_password.errors}\">\n                                         <input class=\"form-control\" name=\"evaluator_password\" formControlName=\"evaluator_password\" id=\"evaluator_password\" type=\"password\" placeholder=\"Enter evaluator password\">\n                                        <ul class=\"help-block\" style=\"color:red\">\n                                            <li *ngIf=\"form.controls.evaluator_password.errors?.required && form.controls.evaluator_password.dirty\">This field is required</li>\n                                            <li *ngIf=\"form.controls.evaluator_password.errors?.minlength && form.controls.evaluator_password.dirty || form.controls.evaluator_password.errors?.maxlength && form.controls.evaluator_password.dirty \">Minimum characters: 8, Maximum characters: 35</li>\n                                         </ul>\n                                      </div>\n                                </div>\n                                  <div class=\"col-md-6\">\n                                      <label for=\"evaluator_confirm\">Confirm Password</label>\n                                      <div [ngClass]=\"{'has-error': (form.controls.evaluator_confirm.errors && form.controls.evaluator_confirm.dirty) || (form.errors?.matchingPasswords && form.controls.evaluator_confirm.dirty), 'has-success': !form.controls.evaluator_confirm.errors && !form.errors?.matchingPasswords}\">\n                                       <input class=\"form-control\" name=\"evaluator_confirm\" formControlName=\"evaluator_confirm\" id=\"evaluator_confirm\" type=\"password\" placeholder=\"Confirm evaluator password\">\n                                        <ul class=\"help-block\" style=\"color:red\">\n                                         <li *ngIf=\"form.controls.evaluator_confirm.errors?.required && form.controls.evaluator_confirm.dirty\">This field is required</li>\n                                         <li *ngIf=\"form.errors?.matchingPasswords && form.controls.evaluator_confirm.dirty\">Password do not match</li>\n                                       </ul>\n                                     </div>\n                                </div>\n                              </div>\n                              </div>      \n            \n                  </div>\n                  <!-- /.box-body -->\n            \n                  <div class=\"box-footer\">\n                      <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n                      \n                  </div>\n                </form>\n              </div>\n              <!-- /.box -->\n\n        </section>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1917,7 +1967,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/event-page/event-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n    <div class=\"bg-navy-active color-palette\">\n        <div class=\"container\">\n          <div class=\"row\">\n            <div class=\"col-lg-1\">\n                <p  style=\"font-size:500%\"><i class=\"fa fa-laptop\" aria-hidden=\"true\"></i></p>\n            </div>\n            <div class=\"col-lg-11\" style=\"line-height:80%\">\n                <h1> {{ event.event_title }}</h1>\n                <p> {{ event.event_description }}</p>\n                <p><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> {{ event.display_time }}</p>\n                <p><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ event.location }}</p>\n            </div>\n\n          </div>\n           \n        </div>\n    </div>\n    <div  class=\"container\">\n        <section class=\"content\">\n\n            <div class=\"nav-tabs-custom\">\n                <ul class=\"nav nav-tabs\">\n                  <li class=\"active\"><a href=\"#tab_1\" data-toggle=\"tab\">OVERVIEW</a></li>\n                  <li><a href=\"#tab_2\" data-toggle=\"tab\">SCHEDULE</a></li>\n                  <li><a href=\"#tab_3\" data-toggle=\"tab\">RULES</a></li>\n                  <li><a href=\"#tab_3\" data-toggle=\"tab\">PRIZES</a></li>\n                  <li><a href=\"#tab_3\" data-toggle=\"tab\">JUDGING</a></li>\n                </ul>\n                <div class=\"tab-content\">\n                  <div class=\"tab-pane active\" id=\"tab_1\">\n                   <div class=\"row\">\n                     <div class=\"col-lg-3\">\n                        <button [routerLink]=\"['/team-registration',event._id]\" class=\"btn btn-xs btn-primary\" type=\"button\" class=\"btn btn-block btn-primary btn-lg\">JOIN EVENT</button>\n                                                \n                        <br>\n                            <div class=\"box-header with-border\">\n                              <h3 class=\"box-title\">Organizers</h3>\n                            </div>\n                            <!-- /.box-header -->\n                            <div class=\"box-body no-padding\">\n                              <ul class=\"users-list clearfix\">\n                                <li>\n                                  <img src=\"assets/dist/img/user1-128x128.jpg\" alt=\"User Image\">\n                                  <a class=\"users-list-name\" href=\"#\">{{ event.host_username }}</a>\n                                </li>\n                              </ul>\n                            <!-- /.box-footer -->\n                          </div>\n\n                          <br>\n                          <div class=\"box box-primary\">\n                          <div class=\"box-header with-border\">\n                            <h3 class=\"box-title\">Evaluators</h3>\n                          </div>\n                          <!-- /.box-header -->\n                          <div class=\"box-body no-padding\">\n                            <ul class=\"users-list clearfix\">\n                              <li *ngFor=\"let evaluator of evaluators\">\n                                <img src=\"assets/dist/img/user1-128x128.jpg\" alt=\"User Image\">\n                                <a class=\"users-list-name\" href=\"#\">{{ evaluator }}</a>\n                              </li>\n                            </ul>\n                          <!-- /.box-footer -->\n                        </div>\n                        </div>\n\n                     </div>\n                     <div class=\"col-lg-9\">\n                        <div class=\"box box-primary\">\n                            <div class=\"box-header with-border\">\n                              <h3 class=\"box-title\">About this Event</h3>\n                            </div>\n                            <div class=\"box-body\">\n                                <p>Join people from around the world to develop innovative solutions to improve access to justice! The hackathon is not just for techies--we need people who understand the needs of low-income clients, legal professionals with deep knowledge of the issues, and project managers that can keep everything on track.\n                                </p>\n                                <br>\n                               <p> All technologies are welcome (not just Drupal). If you can’t participate in person, you can still participate remotely.\n                                </p>\n                                <br>\n                               <p> The Legal Aid Hackathon is funded by the generosity of the Legal Services Corporation by a TIG Grant to Bay Area Legal Services.\n                              </p>\n                              </div>\n                            <!-- /.box-body -->\n                          </div>\n\n                          <div class=\"box box-primary\">\n                              <div class=\"box-header\">\n                                <h3 class=\"box-title\">Prizes</h3>\n                              </div>\n                              <div class=\"box-body\">\n                                <div class=\"row\"  style=\"text-align:center\">\n                                  <div class=\"col-lg-4\">\n                                      <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                      <p>1'st</p>\n                                      <h3>Cash Prizes for team</h3>\n                                    </div>\n                                  <div class=\"col-lg-4\">\n                                      <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                      <p>2'nd</p>\n                                      <h3>Fitbits</h3>\n                                    </div>\n                                    <div class=\"col-lg-4\">\n                                        <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                        <p>3'rd</p>\n                                        <h3>Xbox</h3>\n                                      </div>\n                                </div>\n                                </div>\n                              <!-- /.box-body -->\n                            </div>\n\n                            <div class=\"box\">\n                                <div class=\"box-header\">\n                                  <h3 class=\"box-title\">Schedule</h3>\n                                </div>\n                                <div class=\"box-body\">\n                                    8:00am - Introductions and Overview\n                                    \n                                    9:00am - Start Development\n                                    \n                                    11:00am - Informal break to connect with other teams\n                                    \n                                    12:15pm - Lunch break (lunch provided)\n                                    \n                                    2:30pm - Informal break to connect with other teams\n                                    \n                                    4:30pm - Team Presentations\n                                    \n                                    5:30pm - End of hackathon\n                                    \n                                    Coffee and snacks will be provided throughout the day\n                                  </div>\n                                <!-- /.box-body -->\n                              </div>\n\n                     </div>\n                   </div>\n                  </div>\n                  <!-- /.tab-pane -->\n                  <div class=\"tab-pane\" id=\"tab_2\">\n                    The European languages are members of the same family. Their separate existence is a myth.\n                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ\n                    in their grammar, their pronunciation and their most common words. Everyone realizes why a\n                    new common language would be desirable: one could refuse to pay expensive translators. To\n                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common\n                    words. If several languages coalesce, the grammar of the resulting language is more simple\n                    and regular than that of the individual languages.\n                  </div>\n                  <!-- /.tab-pane -->\n                  <div class=\"tab-pane\" id=\"tab_3\">\n                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,\n                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n                    It has survived not only five centuries, but also the leap into electronic typesetting,\n                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software\n                    like Aldus PageMaker including versions of Lorem Ipsum.\n                  </div>\n                  <!-- /.tab-pane -->\n                </div>\n                <!-- /.tab-content -->\n              </div>\n\n            \n        </section>\n\n    </div>\n\n</div>\n"
+module.exports = "<div class=\"content-wrapper\">\n    <div class=\"bg-navy-active color-palette\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-1\">\n                    <p style=\"font-size:500%\"><i class=\"fa fa-laptop\" aria-hidden=\"true\"></i></p>\n                </div>\n                <div class=\"col-lg-11\" style=\"line-height:100%\">\n                    <h1> {{ event.event_title }}</h1>\n                    <p><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> {{ event.display_time }}</p>\n                    <p><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ event.location }}</p>\n                </div>\n\n            </div>\n\n        </div>\n    </div>\n    <div class=\"container\">\n        <section class=\"content\">\n\n            <div class=\"nav-tabs-custom\">\n                <ul class=\"nav nav-tabs\">\n                    <li class=\"active\"><a href=\"#tab_1\" data-toggle=\"tab\">OVERVIEW</a></li>\n                    <li><a href=\"#tab_2\" data-toggle=\"tab\">SCHEDULE</a></li>\n                    <li><a href=\"#tab_3\" data-toggle=\"tab\">RULES</a></li>\n                    <li><a href=\"#tab_4\" data-toggle=\"tab\">PRIZES</a></li>\n                    <li><a href=\"#tab_5\" data-toggle=\"tab\">JUDGING</a></li>\n                    <li *ngIf=\"isRegistered\"><a href=\"#tab_6\" data-toggle=\"tab\">TEAM</a></li>\n                    <li *ngIf=\"isRegistered && event.archived == 'false' \"><a href=\"#tab_7\" data-toggle=\"tab\">SUBMIT ARTIFACTS</a></li>\n                    <li *ngIf=\"isRegistered\"><a href=\"#tab_8\" data-toggle=\"tab\">SUBMISSIONS</a></li>\n                    <li *ngIf=\"event.archived == 'true'\"><a href=\"#tab_9\" data-toggle=\"tab\">RESULT</a></li>\n                   \n                </ul>\n                <div class=\"tab-content\">\n                    <div class=\"tab-pane active\" id=\"tab_1\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-3\">\n                                <button *ngIf=\"!isRegistered && event.archived == 'false'\" [disabled]=\"isRegistered\" data-toggle=\"tab\"  [routerLink]=\"['/join-event', _id]\"  class=\"btn btn-xs btn-primary\" type=\"button\" class=\"btn btn-block btn-primary btn-lg\">JOIN EVENT</button>\n                                <button *ngIf=\"isRegistered && event.archived == 'false' \" [disabled]=\"isRegistered\" class=\"btn btn-xs btn-primary\" type=\"button\" class=\"btn btn-block btn-danger btn-lg\">JOINED</button>\n                                <button *ngIf=\"event.archived == 'true'\" disabled class=\"btn btn-xs btn-primary\" type=\"button\" class=\"btn btn-block btn-danger btn-lg\">Event has ended</button>\n                                \n                                <br>\n                                <div class=\"box-header with-border\">\n                                    <h3 class=\"box-title\">Organizers</h3>\n                                </div>\n                                <!-- /.box-header -->\n                                <div class=\"box-body no-padding\">\n                                    <ul class=\"users-list clearfix\">\n                                        <li>\n                                            <img src=\"assets/dist/img/user-128.png\" alt=\"User Image\">\n                                            <a class=\"users-list-name\" href=\"#\">{{ event.host_username }}</a>\n                                        </li>\n                                    </ul>\n                                    <!-- /.box-footer -->\n                                </div>\n\n                                <br>\n                                <div class=\"box box-primary\">\n                                    <div class=\"box-header with-border\">\n                                        <h3 class=\"box-title\">Evaluators</h3>\n                                    </div>\n                                    <!-- /.box-header -->\n                                    <div class=\"box-body no-padding\">\n                                        <ul class=\"users-list clearfix\">\n                                            <li *ngFor=\"let evaluator of evaluators\">\n                                                <img src=\"assets/dist/img/user-128.png\" alt=\"User Image\">\n                                                <a class=\"users-list-name\" href=\"#\">{{ evaluator }}</a>\n                                            </li>\n                                        </ul>\n                                        <!-- /.box-footer -->\n                                    </div>\n                                </div>\n\n                            </div>\n                            <div class=\"col-lg-9\">\n                                <div class=\"box\">\n                                    <div class=\"box-header with-border\">\n                                        <h3 class=\"box-title\">About this Event</h3>\n                                    </div>\n                                    <div class=\"box-body\">\n                                        {{event.event_description}}\n                                    </div>\n                                    <!-- /.box-body -->\n                                </div>\n\n                                <div class=\"box\">\n                                    <div class=\"box-header\">\n                                        <h3 class=\"box-title\">Prizes</h3>\n                                    </div>\n                                    <div class=\"box-body\">\n                                        <div class=\"row\" style=\"text-align:center\">\n                                            <div *ngIf=\"event.prize1\" class=\"col-lg-4 col-xs-6\">\n                                                <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                                <p>1'st</p>\n                                                <h3>{{event.prize1}}</h3>\n                                            </div>\n                                            <div *ngIf=\"event.prize2\" class=\"col-lg-4 col-xs-6\">\n                                                <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                                <p>2'nd</p>\n                                                <h3>{{event.prize2}}</h3>\n                                            </div>\n                                            <div *ngIf=\"event.prize3\" class=\"col-lg-4 col-xs-6\">\n                                                <i style=\"font-size:500%\" class=\"fa fa-trophy\" aria-hidden=\"true\"></i>\n                                                <p>3'rd</p>\n                                                <h3>{{event.prize3}}</h3>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <!-- /.box-body -->\n                                </div>\n\n                                <div class=\"box\">\n                                    <div class=\"box-header\">\n                                        <h3 class=\"box-title\">Schedule</h3>\n                                    </div>\n                                    <div class=\"box-body\">\n                                    </div>\n                                    <!-- /.box-body -->\n                                </div>\n\n                            </div>\n                        </div>\n                    </div>\n                    <!-- /.tab-pane -->\n                    <div class=\"tab-pane\" id=\"tab_2\">\n                     </div>\n                    <!-- /.tab-pane -->\n                    <div class=\"tab-pane\" id=\"tab_3\">\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_4\">\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_5\">\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_6\">\n                        <h2 class=\"page-header\">Team Name - {{team.team_name}}</h2>\n                        <div class=\"box-header with-border\">\n                            <h3 class=\"box-title\">Members</h3>\n                        </div>\n                        <!-- /.box-header -->\n                        <div class=\"box-body no-padding\">\n                            <ul class=\"users-list clearfix\">\n                                <li *ngIf=\"team.member1\">\n                                    <img height=\"100px\" width=\"50px\" src=\"assets/dist/img/user-128.png\" alt=\"User Image\">\n                                    <a class=\"users-list-name\" href=\"#\">{{ team.member1 }}</a>\n                                </li>\n                                <li *ngIf=\"team.member2\">\n                                    <img height=\"100px\" width=\"50px\" src=\"assets/dist/img/user-128.png\" alt=\"User Image\">\n                                    <a class=\"users-list-name\" href=\"#\">{{ team.member2 }}</a>\n                                </li>\n                                <li *ngIf=\"team.member3\">\n                                    <img height=\"100px\" width=\"50px\"  src=\"assets/dist/img/user-128.png\" alt=\"User Image\">\n                                    <a class=\"users-list-name\" href=\"#\">{{ team.member3 }}</a>\n                                </li>\n                            </ul>\n                            <!-- /.box-footer -->\n                        </div>\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_7\">\n\n                        <style>\n                            .my-drop-zone {\n                                border: dotted 3px lightgray;\n                            }\n\n                            .nv-file-over {\n                                border: dotted 3px red;\n                            }\n\n                            /* Default class applied to drop zones on over */\n\n                            .another-file-over-class {\n                                border: dotted 3px green;\n                            }\n\n                            html,\n                            body {\n                                height: 100%;\n                            }\n                        </style>\n\n                        \n\n                            <div class=\"row\">\n\n                                <div class=\"col-md-3\">\n\n                                    <h3>Select files</h3>\n\n                                    <div ng2FileDrop [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\" (fileOver)=\"fileOverBase($event)\" [uploader]=\"uploader\" class=\"well my-drop-zone\">\n                                        Base drop zone\n                                    </div>\n\n                                    <div ng2FileDrop [ngClass]=\"{'another-file-over-class': hasAnotherDropZoneOver}\" (fileOver)=\"fileOverAnother($event)\" [uploader]=\"uploader\" class=\"well my-drop-zone\">\n                                        Another drop zone\n                                    </div>\n\n                                    Multiple\n                                    <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple /><br/> Single\n                                    <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" />\n                                </div>\n\n                                <div class=\"col-md-9\" style=\"margin-bottom: 40px\">\n\n                                    <h3>Upload queue</h3>\n                                    <p>Queue length: {{ uploader?.queue?.length }}</p>\n\n                                    <table class=\"table\">\n                                        <thead>\n                                            <tr>\n                                                <th width=\"50%\">Name</th>\n                                                <th>Size</th>\n                                                <th>Progress</th>\n                                                <th>Status</th>\n                                                <th>Actions</th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <tr *ngFor=\"let item of uploader.queue\">\n                                                <td><strong>{{ item?.file?.name }}</strong></td>\n                                                <td *ngIf=\"uploader.isHTML5\" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\n                                                <td *ngIf=\"uploader.isHTML5\">\n                                                    <div class=\"progress\" style=\"margin-bottom: 0;\">\n                                                        <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\n                                                    </div>\n                                                </td>\n                                                <td class=\"text-center\">\n                                                    <span *ngIf=\"item.isSuccess\"><i class=\"glyphicon glyphicon-ok\"></i></span>\n                                                    <span *ngIf=\"item.isCancel\"><i class=\"glyphicon glyphicon-ban-circle\"></i></span>\n                                                    <span *ngIf=\"item.isError\"><i class=\"glyphicon glyphicon-remove\"></i></span>\n                                                </td>\n                                                <td nowrap>\n                                                    <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\n                                                      <span class=\"glyphicon glyphicon-upload\"></span> Upload\n                                                  </button>\n                                                    <button type=\"button\" class=\"btn btn-warning btn-xs\" (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\n                                                      <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel\n                                                  </button>\n                                                    <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\n                                                      <span class=\"glyphicon glyphicon-trash\"></span> Remove\n                                                  </button>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n\n                                    <div>\n                                        <div>\n                                            Queue progress:\n                                            <div class=\"progress\" style=\"\">\n                                                <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\n                                            </div>\n                                        </div>\n                                        <button type=\"button\" class=\"btn btn-success btn-s\"  (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\n                                              <span class=\"glyphicon glyphicon-upload\"></span> Upload all\n                                          </button>\n                                        <button type=\"button\" class=\"btn btn-warning btn-s\" (click)=\"uploader.cancelAll()\" [disabled]=\"!uploader.isUploading\">\n                                              <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel all\n                                          </button>\n                                        <button type=\"button\" class=\"btn btn-danger btn-s\" (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\n                                              <span class=\"glyphicon glyphicon-trash\"></span> Remove all\n                                          </button>\n                                    </div>\n\n                                </div>\n\n                            </div>\n\n                        \n\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_8\">\n                        <h2 class=\"page-header\">Uploaded Files</h2>\n                        <table  class=\"table table-bordered table-hover table-sm table-responsive\"  >\n                            <tbody>\n                                <tr *ngFor='let file of files'>\n                                    <td><a href=\"http://localhost:8080/{{file.file_name}}\" target=\"_blank\">{{file.file_name}}</a></td>\n                                </tr>\n                            </tbody>\n                          </table>\n                    </div>\n\n                    <div class=\"tab-pane\" id=\"tab_9\">\n                        <div class=\"row\">\n                            <div class=\"col-md-4\">\n                                    <div>\n                                            <div class=\"box-body box-profile\">\n                                              <img class=\"profile-user-img img-responsive img-circle\" src=\"assets/dist/img/team-128.png\" alt=\"User profile picture\">\n                                \n                                              <h3 class=\"profile-username text-center\">{{event.winner1}}</h3>\n                                \n                                              <p class=\"text-muted text-center\">Winner</p>\n                                \n                                            </div>\n                                            <!-- /.box-body -->\n                                    </div>\n                                    \n                            </div>\n                            <div class=\"col-md-4\">\n                                    <div>\n                                            <div class=\"box-body box-profile\">\n                                              <img class=\"profile-user-img img-responsive img-circle\" src=\"assets/dist/img/team-128.png\" alt=\"User profile picture\">\n                                \n                                              <h3 class=\"profile-username text-center\">{{event.winner2}}</h3>\n                                \n                                              <p class=\"text-muted text-center\">Second Position</p>\n                                \n                                            </div>\n                                            <!-- /.box-body -->\n                                    </div>\n                                    \n                            </div>\n                            <div class=\"col-md-4\">\n                                    <div>\n                                            <div class=\"box-body box-profile\">\n                                              <img class=\"profile-user-img img-responsive img-circle\" src=\"assets/dist/img/team-128.png\" alt=\"User profile picture\">\n                                \n                                              <h3 class=\"profile-username text-center\">{{event.winner3}}</h3>\n                                \n                                              <p class=\"text-muted text-center\">Third Position</p>\n                                \n                                            </div>\n                                            <!-- /.box-body -->\n                                    </div>\n                                    \n                            </div>\n                        </div>\n                    \n                    \n                    </div>\n                    <!-- /.tab-pane -->\n                </div>\n                <!-- /.tab-content -->\n            </div>\n\n\n        </section>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -1927,8 +1977,11 @@ module.exports = "<div class=\"content-wrapper\">\n    <div class=\"bg-navy-acti
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1941,15 +1994,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var EventPageComponent = (function () {
-    function EventPageComponent(authService, route) {
+    function EventPageComponent(formBuilder, authService, route, router) {
+        this.formBuilder = formBuilder;
         this.authService = authService;
         this.route = route;
+        this.router = router;
         this.event = {};
+        this.team = {};
+        this.isRegistered = false;
         this.evaluators = new Array;
+        this.hasBaseDropZoneOver = false;
+        this.hasAnotherDropZoneOver = false;
+        this.myurl = 'http://localhost:8080/authentication/upload/';
+        this.files = new Array;
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__["FileUploader"]({ url: this.myurl });
+        this.createForm();
     }
+    EventPageComponent.prototype.fileOverBase = function (e) {
+        this.hasBaseDropZoneOver = e;
+    };
+    EventPageComponent.prototype.fileOverAnother = function (e) {
+        this.hasAnotherDropZoneOver = e;
+    };
+    EventPageComponent.prototype.createForm = function () {
+        this.form = this.formBuilder.group({
+            team_name: [''],
+            member1: [''],
+            member2: [''],
+            member3: [''],
+        });
+    };
+    EventPageComponent.prototype.onTeamRegisterSubmit = function () {
+        var _this = this;
+        var team = {
+            username: JSON.parse(localStorage.getItem('user')).username,
+            team_name: this.form.get('team_name').value,
+            member1: this.form.get('member1').value,
+            member2: this.form.get('member2').value,
+            member3: this.form.get('member3').value,
+            event_id: this._id,
+            event_title: this.event.event_title
+        };
+        console.log(team);
+        this.authService.registerTeam(team)
+            .subscribe(function (teams) {
+            _this.router.navigate(['/event-page', _this._id]);
+        });
+    };
     EventPageComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.x = this.route.snapshot.data['event'];
+        if (this.x == null) {
+            this.isRegistered = false;
+        }
+        else {
+            this.isRegistered = true;
+        }
         this.route.params.forEach(function (params) {
             _this._id = params['_id'];
         });
@@ -1959,6 +2062,20 @@ var EventPageComponent = (function () {
                 _this.evaluators[_this.i] = _this.event.evaluators_array[_this.i];
             }
         });
+        this.authService.getTeam(JSON.parse(localStorage.getItem('user')).username, this._id).subscribe(function (team) {
+            _this.team = team || {};
+            _this.uploader.onBuildItemForm = function (fileItem, form) {
+                form.append('_id', _this.team._id);
+                form.append('username', JSON.parse(localStorage.getItem('user')).username);
+            };
+            _this.uploader.onCompleteItem = function (item, response, status, headers) {
+                console.log("ImageUpload:uploaded:", item, status);
+                _this.router.navigate(['/event-page', _this._id]);
+            };
+            _this.authService.getUserTeamwiseSubmissions(_this.team._id).subscribe(function (files) {
+                _this.files = files;
+            });
+        });
     };
     EventPageComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1966,7 +2083,10 @@ var EventPageComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/event-page/event-page.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/event-page/event-page.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], EventPageComponent);
     return EventPageComponent;
 }());
@@ -1996,7 +2116,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n        <div class=\"bg-navy-active color-palette\">\n            <div class=\"container\">\n                <h1 style=\"text-align:center\">FEATURED HACKATHONS</h1>\n                <div *ngFor='let event of events'>\n                    <div *ngIf=\"event.future == 'true'\">\n                        <div class=\"bg-light-blue-active color-palette\">\n    \n                            <div class=\"row\">\n    \n                                <div class=\"col-lg-2  col-xs-6\">\n                                    <div>\n                                        <i style=\" line-height:60px;margin-left:20%\" class=\"fa fa-clock-o\"></i> {{event.time}}\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-1 col-xs-6\">\n                                    <div>\n                                        <h1 style=\" line-height:50% ; margin-left:30%\"><i class=\"fa fa-laptop\" ></i></h1>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-7  col-xs-12\">\n                                    <div>\n                                        <h3 style=\" line-height:50% ;\"><a [routerLink]=\"['/event-page',event._id]\" style=\"color:whitesmoke\">{{ event.event_title }}</a></h3>\n                                        <p>{{ event.event_description }}</p>\n                                    </div>\n    \n                                </div>\n                                <div class=\"col-lg-2  col-xs-12\">\n                                    <div>\n                                        <h4 style=\" line-height:50px\"><i class=\"fa fa-map-marker\"></i> {{ event.location }}</h4>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n                        </div>\n    \n                        <br>\n                    </div>\n                </div>\n    \n            </div>\n        </div>\n        <div  class=\"container\">\n            <section class=\"content\">\n                <div class=\"row\">\n                    <div class=\"col-lg-4\">\n                                    <div class=\"box-body\">\n                                      <input class=\"form-control\" type=\"text\" placeholder=\"Search Hackathons\">\n                                      <h3 style=\"text-align:center;margin:5px auto\" >near</h3>\n                                      <input class=\"form-control\" type=\"text\" placeholder=\"Location\">\n                                    </div>\n                    </div>\n                    <div class=\"col-lg-8\">\n                        <div class=\"row\">\n                                <div *ngFor='let event of events'>\n                                        <div >\n                                            <div class=\"bg-gray color-palette\">\n                        \n                                                <div class=\"row\">\n                        \n                                                    <div class=\"col-lg-2  col-xs-6\">\n                                                        <div>\n                                                            <i style=\" line-height:60px;margin-left:20%\" class=\"fa fa-clock-o\"></i> {{event.time}}\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"col-lg-1 col-xs-6\">\n                                                        <div>\n                                                            <h1 style=\" line-height:50% ; margin-left:30%\"><i class=\"fa fa-laptop\" ></i></h1>\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"col-lg-7  col-xs-12\">\n                                                        <div>\n                                                            <h3 style=\" line-height:50% ;\"><a [routerLink]=\"['/event-page',event._id]\" style=\"color:black\">{{ event.event_title }}</a></h3>\n                                                            <p>{{ event.event_description }}</p>\n                                                        </div>\n                        \n                                                    </div>\n                                                    <div class=\"col-lg-2  col-xs-12\">\n                                                        <div>\n                                                            <h4 style=\" line-height:50px\"><i class=\"fa fa-map-marker\"></i> {{ event.location }}</h4>\n                                                        </div>\n                        \n                                                    </div>\n                        \n                                                </div>\n                                            </div>\n                        \n                                            <br>\n                                        </div>\n                                    </div>\n\n                        </div>\n\n                    </div>\n                </div>\n                \n            </section>\n\n        </div>\n    \n    </div>"
+module.exports = "<div class=\"content-wrapper\">\n        <div class=\"bg-navy-active color-palette\">\n            <div class=\"container\">\n                <h1 style=\"text-align:center\">FEATURED HACKATHONS</h1>\n                <div *ngFor='let event of events'>\n                    <div *ngIf=\"event.future == 'true'\">\n                        <div class=\"bg-light-blue-active color-palette\">\n    \n                            <div class=\"row\" style=\"margin:5%\">\n    \n                                <div class=\"col-lg-2  col-xs-6\">\n                                    <div>\n                                        <i style=\" line-height:60px;margin-left:20%\" class=\"fa fa-clock-o\"></i> {{event.time}}\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-1 col-xs-6\">\n                                    <div>\n                                        <h1 style=\" line-height:50% ; margin-left:30%\"><i class=\"fa fa-laptop\" ></i></h1>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-7  col-xs-12\">\n                                    <div>\n                                            <h3 style=\" line-height:30px ;\"><a [routerLink]=\"['/event-page',event._id]\" style=\"color:whitesmoke\">{{ event.event_title }}</a></h3>\n                                            \n                                    </div>\n    \n                                </div>\n                                <div class=\"col-lg-2  col-xs-12\">\n                                    <div>\n                                        <h4 style=\" line-height:50px\"><i class=\"fa fa-map-marker\"></i> {{ event.location }}</h4>\n                                    </div>\n    \n                                </div>\n    \n                            </div>\n                        </div>\n    \n                        <br>\n                    </div>\n                </div>\n    \n            </div>\n        </div>\n    \n        <div class=\"container\">\n    \n            <section class=\"content\">\n                <div class=\"box box-info\">\n                    <div class=\"box-header with-border\">\n                        <h3 class=\"box-title\">Ongoing events</h3>\n                    </div>\n                    <!-- /.box-header -->\n                    <div class=\"box-body\">\n                        <div class=\"table-responsive\">\n                            <table class=\"table\">\n                                <thead>\n                                    <tr>\n                                        <th>Title</th>\n                                        <th>Start Date and Time</th>\n                                        <th>End Date and Time</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor='let event of events'>\n    \n                                        <td *ngIf=\"event.live == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                        <td *ngIf=\"event.live == 'true'\">{{ event.start | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                        <td *ngIf=\"event.live == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                        <td *ngIf=\"event.live == 'true'\"><a [routerLink]=\"['/join-event',event._id]\" class=\"btn btn-xs btn-primary\">Register</a></td>\n    \n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                        <!-- /.table-responsive -->\n                    </div>\n                    <!-- /.box-footer -->\n                </div>\n    \n                <div class=\"box box-info\">\n                    <div class=\"box-header with-border\">\n                        <h3 class=\"box-title\">Future events</h3>\n    \n                        <div class=\"box-tools pull-right\">\n                            <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i>\n                            </button>\n                            <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\"><i class=\"fa fa-times\"></i></button>\n                        </div>\n                    </div>\n                    <!-- /.box-header -->\n                    <div class=\"box-body\">\n                        <div class=\"table-responsive\">\n                            <table class=\"table no-margin\">\n                                <thead>\n                                    <tr>\n                                        <th>Title</th>\n                                        <th>Start Date and Time</th>\n                                        <th>End Date and Time</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor='let event of events'>\n    \n                                        <td *ngIf=\"event.future == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                        <td *ngIf=\"event.future == 'true'\">{{ event.start| date: 'dd-MM-yyyy HH:mm' }}</td>\n                                        <td *ngIf=\"event.future == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                        <td *ngIf=\"event.future == 'true'\"><a [routerLink]=\"['/join-event',event._id]\" class=\"btn btn-xs btn-primary\">Register</a></td>\n    \n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                        <!-- /.table-responsive -->\n                    </div>\n                    <!-- /.box-footer -->\n                </div>\n    \n                <div class=\"box box-info\">\n                    <div class=\"box-header with-border\">\n                        <h3 class=\"box-title\">Archived events</h3>\n    \n                        <div class=\"box-tools pull-right\">\n                            <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i>\n                            </button>\n                            <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\"><i class=\"fa fa-times\"></i></button>\n                        </div>\n                    </div>\n                    <!-- /.box-header -->\n                    <div class=\"box-body\">\n                        <div class=\"table-responsive\">\n                            <table class=\"table no-margin\">\n                                <thead>\n                                    <tr>\n                                        <th>Title</th>\n                                        <th>Start Date and Time</th>\n                                        <th>End Date and Time</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor='let event of events'>\n    \n                                        <td *ngIf=\"event.archived == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                        <td *ngIf=\"event.archived == 'true'\">{{ event.start | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                        <td *ngIf=\"event.archived == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n    \n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                        <!-- /.table-responsive -->\n                    </div>\n                    <!-- /.box-footer -->\n                </div>\n            </section>\n    \n        </div>\n    </div>"
 
 /***/ }),
 
@@ -2006,7 +2126,9 @@ module.exports = "<div class=\"content-wrapper\">\n        <div class=\"bg-navy-
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_get_token_service__ = __webpack_require__("../../../../../src/app/services/get-token.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2018,15 +2140,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var HomeComponent = (function () {
-    function HomeComponent(authService) {
+    function HomeComponent(router, activatedRoute, authService, tokenService) {
+        this.router = router;
+        this.activatedRoute = activatedRoute;
         this.authService = authService;
+        this.tokenService = tokenService;
         this.events = new Array;
+        this.accessToken = null;
+        this.accessResponse = null;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.authService.getEvents().subscribe(function (data) {
             _this.events = data.events;
+            console.log(JSON.stringify(_this.events));
         });
     };
     HomeComponent = __decorate([
@@ -2035,7 +2165,10 @@ var HomeComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_get_token_service__["a" /* GetTokenService */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -2126,7 +2259,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/host-login/host-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t\t<div class=\"login-logo\">\n\t\t\t\t\t<a href=\"../../index2.html\"><b>Host Login</b></a>\n\t\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\t\n      <!--div class=\"card-header\">Host Login</div-->\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onHostLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n            <label for=\"host_username\">Host username</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.host_username.errors && form.controls.host_username.dirty, 'has-success': form.controls.host_username.valid && form.controls.host_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"host_username\" formControlName=\"host_username\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.host_username.errors?.required && form.controls.host_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n            <label for=\"exampleInputPassword1\">Password</label>\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.host_password.errors && form.controls.host_password.dirty, 'has-success': form.controls.host_password.valid && form.controls.host_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"host_password\" formControlName=\"host_password\" />\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.host_password.errors?.required && form.controls.host_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
+module.exports = "<div class=\"login-box card card-login mx-auto mt-5\">\n\t\t\t<div class=\"login-logo\">\n\t\t\t\t\t<a href=\"../../index2.html\"><b>Host Login</b></a>\n\t\t\t\t</div>\n\t<!-- Custom Success/Error Message -->\n\t<div [ngClass]=\"messageClass\">\n    {{ message }}\n\t</div>\n\t\n      <!--div class=\"card-header\">Host Login</div-->\n      <div class=\"card-body\">\n        <form [formGroup]=\"form\" (submit)=\"onHostLoginSubmit()\">\n\t\t\n          <div class=\"form-group\">\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.host_username.errors && form.controls.host_username.dirty, 'has-success': form.controls.host_username.valid && form.controls.host_username.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"host_username\" formControlName=\"host_username\" placeholder=\"Host Username\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.host_username.errors?.required && form.controls.host_username.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <div class=\"form-group\">\n\t\t\t<div [ngClass]=\"{'has-error': form.controls.host_password.errors && form.controls.host_password.dirty, 'has-success': form.controls.host_password.valid && form.controls.host_password.dirty }\">\n\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"host_password\" formControlName=\"host_password\" placeholder=\"Host Password\"/>\n\t\t\t\t<!-- Validation -->\n\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t<li *ngIf=\"form.controls.host_password.errors?.required && form.controls.host_password.dirty\">This field is required.</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t  </div>\n\t\t  \n          <button [disabled]=\"!form.valid\"  type=\"submit\" class=\"btn btn-primary btn-block\"  value=\"Login\">Login</button>\n\t\t  \n        </form>\n      </div>\n    </div>"
 
 /***/ }),
 
@@ -2260,7 +2393,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/host-register/host-register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"box box-primary\" style=\"width:500px;margin:0 auto\">\n    <div class=\"box-header with-border\">\n      <h3 class=\"box-title\">Add a Host</h3>\n    </div>\n    <!-- /.box-header -->\n    <!-- form start -->\n    <form role=\"form\" [formGroup]=\"form\" (submit)=\"onHostRegisterSubmit()\">\n      <div class=\"box-body\">\n\n          <div class=\"form-group\">\n              <label for=\"exampleInputUsername\">Host Username</label>\n              <div  [ngClass]=\"{'has-error': (form.controls.host_username.errors && form.controls.host_username.dirty), 'has-success': !form.controls.host_username.errors}\">\n               <input class=\"form-control\" name=\"host_username\" formControlName=\"host_username\" id=\"host_username\" type=\"text\" placeholder=\"Enter Host Username\">\n               <ul class=\"help-block\" style=\"color:red\">\n                <li *ngIf=\"form.controls.host_username.errors?.required && form.controls.host_username.dirty\">This field is required</li>\n                    <li *ngIf=\"form.controls.host_username.errors?.minlength && form.controls.host_username.dirty || form.controls.host_username.errors?.maxlength && form.controls.host_username.dirty \">Minimum characters: 3, Maximum characters: 15</li>\n                    <li *ngIf=\"form.controls.host_username.errors?.validateUsername && form.controls.host_username.dirty\">Username must not have any special characters</li>\n                   \n                </ul>\n                 </div>\n              </div>\n          \n              <div class=\"form-group\">\n               <label for=\"exampleInputEmail1\">Host Email address</label>\n               <div  [ngClass]=\"{'has-error': (form.controls.host_email.errors && form.controls.host_email.dirty), 'has-success': !form.controls.host_email.errors}\">\n                  <input class=\"form-control\" name=\"host_email\" formControlName=\"host_email\" id=\"exampleInputEmail1\" type=\"email\" placeholder=\"Enter Host Email\">\n                  <ul class=\"help-block\" style=\"color:red\">\n                    <li *ngIf=\"form.controls.host_email.errors?.required && form.controls.host_email.dirty\">This field is required</li>\n                        <li *ngIf=\"(form.controls.host_email.errors?.minlength && form.controls.host_email.dirty || form.controls.host_email.errors?.maxlength && form.controls.host_email.dirty ) && form.controls.host_email.dirty\">Minimum characters: 5, Maximum characters: 30</li>\n                        <li *ngIf=\"form.controls.host_email.errors?.validateEmail && form.controls.host_email.dirty\">This must be a valid e-mail</li>\n                     </ul>\n                     </div>\n                </div>\n                <div class=\"form-group\">\n                    <div class=\"row\">\n                      <div class=\"col-md-6\">\n                      <label for=\"host_password\">Host Password</label>\n                      <div  [ngClass]=\"{'has-error': (form.controls.host_password.errors && form.controls.host_password.dirty), 'has-success': !form.controls.host_password.errors}\">\n                         <input class=\"form-control\" name=\"host_password\" formControlName=\"host_password\" id=\"host_password\" type=\"password\" placeholder=\"Enter host password\">\n                        <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.host_password.errors?.required && form.controls.host_password.dirty\">This field is required</li>\n                            <li *ngIf=\"form.controls.host_password.errors?.minlength && form.controls.host_password.dirty || form.controls.host_password.errors?.maxlength && form.controls.host_password.dirty \">Minimum characters: 8, Maximum characters: 35</li>\n                         </ul>\n                      </div>\n                    </div>\n                      <div class=\"col-md-6\">\n                       <label for=\"host_confirm\">Confirm Password</label>\n                       <div [ngClass]=\"{'has-error': (form.controls.host_confirm.errors && form.controls.host_confirm.dirty) || (form.errors?.matchingPasswords && form.controls.host_confirm.dirty), 'has-success': !form.controls.host_confirm.errors && !form.errors?.matchingPasswords}\">\n                        <input class=\"form-control\" name=\"host_confirm\" formControlName=\"host_confirm\" id=\"host_confirm\" type=\"password\" placeholder=\"Confirm host password\">\n                         <ul class=\"help-block\" style=\"color:red\">\n                          <li *ngIf=\"form.controls.host_confirm.errors?.required && form.controls.host_confirm.dirty\">This field is required</li>\n                          <li *ngIf=\"form.errors?.matchingPasswords && form.controls.host_confirm.dirty\">Password do not match</li>\n                        </ul>\n                      </div>\n                    </div>\n                  </div>\n                  </div>      \n\n      </div>\n      <!-- /.box-body -->\n\n      <div class=\"box-footer\">\n          <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n          \n      </div>\n    </form>\n  </div>\n  <!-- /.box -->"
+module.exports = "<div class=\"content-wrapper\" style=\"height:100%\">\n    <div class=\"container\">\n        <section class=\"content\">\n            <div class=\"box box-primary\" style=\"width:500px;margin:0 auto\">\n                <div class=\"box-header with-border\">\n                  <h3 class=\"box-title\">Add a Host</h3>\n                </div>\n                <!-- /.box-header -->\n                <!-- form start -->\n                <form role=\"form\" [formGroup]=\"form\" (submit)=\"onHostRegisterSubmit()\">\n                  <div class=\"box-body\">\n            \n                      <div class=\"form-group\">\n                          <label for=\"exampleInputUsername\">Host Username</label>\n                          <div  [ngClass]=\"{'has-error': (form.controls.host_username.errors && form.controls.host_username.dirty), 'has-success': !form.controls.host_username.errors}\">\n                           <input class=\"form-control\" name=\"host_username\" formControlName=\"host_username\" id=\"host_username\" type=\"text\" placeholder=\"Enter Host Username\">\n                           <ul class=\"help-block\" style=\"color:red\">\n                            <li *ngIf=\"form.controls.host_username.errors?.required && form.controls.host_username.dirty\">This field is required</li>\n                                <li *ngIf=\"form.controls.host_username.errors?.minlength && form.controls.host_username.dirty || form.controls.host_username.errors?.maxlength && form.controls.host_username.dirty \">Minimum characters: 3, Maximum characters: 15</li>\n                                <li *ngIf=\"form.controls.host_username.errors?.validateUsername && form.controls.host_username.dirty\">Username must not have any special characters</li>\n                               \n                            </ul>\n                             </div>\n                          </div>\n                      \n                          <div class=\"form-group\">\n                           <label for=\"exampleInputEmail1\">Host Email address</label>\n                           <div  [ngClass]=\"{'has-error': (form.controls.host_email.errors && form.controls.host_email.dirty), 'has-success': !form.controls.host_email.errors}\">\n                              <input class=\"form-control\" name=\"host_email\" formControlName=\"host_email\" id=\"exampleInputEmail1\" type=\"email\" placeholder=\"Enter Host Email\">\n                              <ul class=\"help-block\" style=\"color:red\">\n                                <li *ngIf=\"form.controls.host_email.errors?.required && form.controls.host_email.dirty\">This field is required</li>\n                                    <li *ngIf=\"(form.controls.host_email.errors?.minlength && form.controls.host_email.dirty || form.controls.host_email.errors?.maxlength && form.controls.host_email.dirty ) && form.controls.host_email.dirty\">Minimum characters: 5, Maximum characters: 30</li>\n                                    <li *ngIf=\"form.controls.host_email.errors?.validateEmail && form.controls.host_email.dirty\">This must be a valid e-mail</li>\n                                 </ul>\n                                 </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"row\">\n                                  <div class=\"col-md-6\">\n                                  <label for=\"host_password\">Host Password</label>\n                                  <div  [ngClass]=\"{'has-error': (form.controls.host_password.errors && form.controls.host_password.dirty), 'has-success': !form.controls.host_password.errors}\">\n                                     <input class=\"form-control\" name=\"host_password\" formControlName=\"host_password\" id=\"host_password\" type=\"password\" placeholder=\"Enter host password\">\n                                    <ul class=\"help-block\" style=\"color:red\">\n                                        <li *ngIf=\"form.controls.host_password.errors?.required && form.controls.host_password.dirty\">This field is required</li>\n                                        <li *ngIf=\"form.controls.host_password.errors?.minlength && form.controls.host_password.dirty || form.controls.host_password.errors?.maxlength && form.controls.host_password.dirty \">Minimum characters: 8, Maximum characters: 35</li>\n                                     </ul>\n                                  </div>\n                                </div>\n                                  <div class=\"col-md-6\">\n                                   <label for=\"host_confirm\">Confirm Password</label>\n                                   <div [ngClass]=\"{'has-error': (form.controls.host_confirm.errors && form.controls.host_confirm.dirty) || (form.errors?.matchingPasswords && form.controls.host_confirm.dirty), 'has-success': !form.controls.host_confirm.errors && !form.errors?.matchingPasswords}\">\n                                    <input class=\"form-control\" name=\"host_confirm\" formControlName=\"host_confirm\" id=\"host_confirm\" type=\"password\" placeholder=\"Confirm host password\">\n                                     <ul class=\"help-block\" style=\"color:red\">\n                                      <li *ngIf=\"form.controls.host_confirm.errors?.required && form.controls.host_confirm.dirty\">This field is required</li>\n                                      <li *ngIf=\"form.errors?.matchingPasswords && form.controls.host_confirm.dirty\">Password do not match</li>\n                                    </ul>\n                                  </div>\n                                </div>\n                              </div>\n                              </div>      \n            \n                  </div>\n                  <!-- /.box-body -->\n            \n                  <div class=\"box-footer\">\n                      <button  [disabled]=\"!form.valid || processing\" type=\"submit\" class=\"btn btn-primary btn-block\" value=\"submit\">Register</button>\n                      \n                  </div>\n                </form>\n              </div>\n              <!-- /.box -->\n\n        </section>\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -2412,6 +2545,114 @@ var HostRegisterComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/join-event/join-event.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/join-event/join-event.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content-wrapper\">\n  <div class=\"bg-navy-active color-palette\">\n      <div class=\"container\">\n          <div class=\"row\">\n              <div class=\"col-lg-1\">\n                  <p style=\"font-size:500%\"><i class=\"fa fa-laptop\" aria-hidden=\"true\"></i></p>\n              </div>\n              <div class=\"col-lg-11\" style=\"line-height:100%\">\n                  <h1> {{ event.event_title }}</h1>\n                  <p><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> {{ event.display_time }}</p>\n                  <p><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ event.location }}</p>\n              </div>\n\n          </div>\n\n      </div>\n  </div>\n  <div class=\"container\">\n      <section class=\"content\">\n            <div class=\"box box-primary\" style=\"width:800px; margin:0 auto\">\n            <div class=\"box-header with-border\">\n                    <h3 class=\"box-title\">Register Your Team</h3>\n                  </div>\n            <form [formGroup]=\"form\" (submit)=\"onTeamRegisterSubmit()\">\n                    <div class=\"box-body\">\n            <div class=\"form-group\">\n                <label for=\"exampleInputUsername\">Team Name</label>\n                <input class=\"form-control\" name=\"team_name\" formControlName=\"team_name\" id=\"team_name\" type=\"text\" placeholder=\"Enter team name\">\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"exampleInputUsername\">Team Member 1</label>\n                <input class=\"form-control\" name=\"member1\" formControlName=\"member1\" id=\"member1\" type=\"text\" placeholder=\"Enter member1\">\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"exampleInputUsername\">Team Member 2</label>\n                <input class=\"form-control\" name=\"member2\" formControlName=\"member2\" id=\"member2\" type=\"text\" placeholder=\"Enter member2\">\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"exampleInputUsername\">Team Member 3</label>\n                <input class=\"form-control\" name=\"member3\" formControlName=\"member3\" id=\"member3\" type=\"text\" placeholder=\"Enter member3\">\n            </div>\n                    </div>\n            <div class=\"box-footer\">\n                <button  [disabled]=\"!form.valid \" type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Register Team</button>\n            \n            </div>\n\n        </form> \n\n        </div>\n      </section>\n\n  </div>\n\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/join-event/join-event.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JoinEventComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var JoinEventComponent = (function () {
+    function JoinEventComponent(formBuilder, authService, route, router) {
+        this.formBuilder = formBuilder;
+        this.authService = authService;
+        this.route = route;
+        this.router = router;
+        this.event = {};
+        this.createForm();
+    }
+    JoinEventComponent.prototype.createForm = function () {
+        this.form = this.formBuilder.group({
+            team_name: [''],
+            member1: [''],
+            member2: [''],
+            member3: [''],
+        });
+    };
+    JoinEventComponent.prototype.onTeamRegisterSubmit = function () {
+        var _this = this;
+        var team = {
+            username: JSON.parse(localStorage.getItem('user')).username,
+            team_name: this.form.get('team_name').value,
+            member1: this.form.get('member1').value,
+            member2: this.form.get('member2').value,
+            member3: this.form.get('member3').value,
+            event_id: this._id,
+            event_title: this.event.event_title
+        };
+        console.log(team);
+        this.authService.registerTeam(team)
+            .subscribe(function (teams) {
+            _this.router.navigate(['/event-page', _this._id]);
+        });
+    };
+    JoinEventComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            _this._id = params['_id'];
+        });
+        this.authService.getEvent(this._id).subscribe(function (data) {
+            _this.event = data.event;
+        });
+    };
+    JoinEventComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-join-event',
+            template: __webpack_require__("../../../../../src/app/components/join-event/join-event.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/join-event/join-event.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], JoinEventComponent);
+    return JoinEventComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/login/login.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2433,7 +2674,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-box\">\n\t\t<div class=\"login-logo\">\n\t\t\t<a href=\"../../index2.html\"><b>Login</b></a>\n\t\t</div>\n\t\t<!-- /.login-logo -->\n\t\t<div class=\"login-box-body\">\n\t\t\t\t<div *ngIf=\"message\"  [ngClass]=\"messageClass\">\n\t\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n\t\t\t\t\t\t<h4><i class=\"icon fa fa-check\"></i>{{ message }}</h4>\n\t\t\t\t\t</div>\n\t\n\t\t\t<form [formGroup]=\"form\" (submit)=\"onLoginSubmit()\">\n\t\t\t\t\n\n\t\t\t\t<div class=\"form-group has-feedback\">\n\t\t\t\t\t\t<div [ngClass]=\"{'has-error': form.controls.username.errors && form.controls.username.dirty, 'has-success': form.controls.username.valid && form.controls.username.dirty }\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"username\" formControlName=\"username\" placeholder=\"Username\" />\n\t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-envelope form-control-feedback\"></span>\n\t\t\t\t\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t\t\t\t\t<li *ngIf=\"form.controls.username.errors?.required && form.controls.username.dirty\">This field is required.</li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"form-group has-feedback\">\n\t\t\t\t\t\t<div [ngClass]=\"{'has-error': form.controls.password.errors && form.controls.password.dirty, 'has-success': form.controls.password.valid && form.controls.password.dirty }\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"password\" formControlName=\"password\" placeholder=\"Password\" />\n\t\t\t\t\t\t\t\t<!-- Validation -->\n\t\t\t\t\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t\t\t\t\t<li *ngIf=\"form.controls.password.errors?.required && form.controls.password.dirty\">This field is required.</li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<button [disabled]=\"!form.valid\"  type=\"submit\" value=\"Login\" class=\"btn btn-primary btn-block btn-flat\">Log In</button>\n\t\t\t</form>\n\t\n\t\t\t<div class=\"social-auth-links text-center\">\n\t\t\t\t<p>- OR -</p>\n\t\t\t\t<a href=\"https://www.linkedin.com/oauth/v2/authorization?response_type=code\n\t\t\t\t&client_id=816x7fwlimaa7s&redirect_uri=http://localhost:4200/demo&state=987654321&scope=r_basicprofile r_emailaddress\" class=\"btn btn-block btn-social btn-linkedin btn-flat\"><i class=\"fa fa-linkedin\"></i> Sign in using\n\t\t\t\t\tLinkedIn</a>\n\t\t\t</div>\n\t\t\t<!-- /.social-auth-links -->\n\n\t\t\t<p class=\"text-center\"> Don't have an account? <a routerLink=\"/register\" class=\"text-center\">Register</a></p>\n\t\n\t\t</div>\n\t\t<!-- /.login-box-body -->\n\t</div>"
+module.exports = "<div class=\"login-box\">\n\t\t<div class=\"login-logo\">\n\t\t\t<a href=\"../../index2.html\"><b>User Login</b></a>\n\t\t</div>\n\t\t<!-- /.login-logo -->\n\t\t<div class=\"login-box-body\">\n\t\t\t\t<div *ngIf=\"message\"  [ngClass]=\"messageClass\">\n\t\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n\t\t\t\t\t\t<h4><i class=\"icon fa fa-check\"></i>{{ message }}</h4>\n\t\t\t\t\t</div>\n\t\n\t\t\t<form [formGroup]=\"form\" (submit)=\"onLoginSubmit()\">\n\t\t\t\t\n\n\t\t\t\t<div class=\"form-group has-feedback\">\n\t\t\t\t\t\t<div [ngClass]=\"{'has-error': form.controls.username.errors && form.controls.username.dirty, 'has-success': form.controls.username.valid && form.controls.username.dirty }\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"username\" formControlName=\"username\" placeholder=\"Username\" />\n\t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-envelope form-control-feedback\"></span>\n\t\t\t\t\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t\t\t\t\t<li *ngIf=\"form.controls.username.errors?.required && form.controls.username.dirty\">This field is required.</li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"form-group has-feedback\">\n\t\t\t\t\t\t<div [ngClass]=\"{'has-error': form.controls.password.errors && form.controls.password.dirty, 'has-success': form.controls.password.valid && form.controls.password.dirty }\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"password\" name=\"password\" formControlName=\"password\" placeholder=\"Password\" />\n\t\t\t\t\t\t\t\t<!-- Validation -->\n\t\t\t\t\t\t\t\t<ul style=\"color:red\" class=\"help-block\">\n\t\t\t\t\t\t\t\t\t<li *ngIf=\"form.controls.password.errors?.required && form.controls.password.dirty\">This field is required.</li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<button [disabled]=\"!form.valid\"  type=\"submit\" value=\"Login\" class=\"btn btn-primary btn-block btn-flat\">Log In</button>\n\t\t\t</form>\n\t\n\t\t\t<div class=\"social-auth-links text-center\">\n\t\t\t\t<p>- OR -</p>\n\t\t\t\t<a href=\"https://www.linkedin.com/oauth/v2/authorization?response_type=code\n\t\t\t\t&client_id=816x7fwlimaa7s&redirect_uri=http://localhost:4200/demo&state=987654321&scope=r_basicprofile r_emailaddress\" class=\"btn btn-block btn-social btn-linkedin btn-flat\"><i class=\"fa fa-linkedin\"></i> Sign in using\n\t\t\t\t\tLinkedIn</a>\n\t\t\t</div>\n\t\t\t<!-- /.social-auth-links -->\n\n\t\t\t<p class=\"text-center\"> Don't have an account? <a routerLink=\"/register\" class=\"text-center\">Register</a></p>\n\t\n\t\t</div>\n\t\t<!-- /.login-box-body -->\n\t</div>"
 
 /***/ }),
 
@@ -2519,7 +2760,7 @@ var LoginComponent = (function () {
                         _this.router.navigate([_this.previousUrl]); // Redirect to page they were trying to view before
                     }
                     else {
-                        _this.router.navigate(['/profile']); // Navigate to dashboard view
+                        _this.router.navigate(['/home']); // Navigate to home view
                     }
                 }, 2000);
             }
@@ -2573,7 +2814,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"main-header\">\n        <nav class=\"navbar navbar-static-top\">\n            <div class=\"container\">\n                <div class=\"navbar-header\">\n                    <a routerLink=\"/home\" routerLinkActive=\"active\" class=\"navbar-brand\"><b>Hackathon</b></a>\n                    <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\n                        <i class=\"fa fa-bars\"></i>\n                    </button>\n                </div>\n    \n                <!-- Collect the nav links, forms, and other content for toggling -->\n                <div class=\"collapse navbar-collapse pull-left\" id=\"navbar-collapse\">\n                    <ul class=\"nav navbar-nav\">\n                        <li class=\"active\"><a routerLink=\"/home\" routerLinkActive=\"active\">Home <span class=\"sr-only\">(current)</span></a></li>\n                        <li *ngIf=\"authService.adminLoggedIn()\">\n                            <a routerLink=\"/admin-dashboard\" routerLinkActive=\"active\">Admin Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.hostLoggedIn()\">\n                            <a routerLink=\"/host-dashboard\" routerLinkActive=\"active\">Host Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.evaluatorLoggedIn()\">\n                            <a routerLink=\"/evaluator-dashboard\" routerLinkActive=\"active\">Evaluator Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.loggedIn()\">\n                            <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.loggedIn()\">\n                            <a routerLink=\"/profile\" routerLinkActive=\"active\">Profile</a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- /.navbar-collapse -->\n                <!-- Navbar Right Menu -->\n                <div class=\"navbar-custom-menu\">\n                    <ul class=\"nav navbar-nav\">\n                        <li class=\"dropdown\" *ngIf=\"!authService.loggedIn()&&!authService.adminLoggedIn()&&!authService.hostLoggedIn()&&!authService.evaluatorLoggedIn()\">\n                            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Login <span class=\"caret\"></span></a>\n                            <ul class=\"dropdown-menu\" role=\"menu\">\n                                <li><a routerLink=\"/login\" routerLinkActive=\"active\">User Login</a></li>\n                                <li><a routerLink=\"/admin-login\" routerLinkActive=\"active\">Admin Login</a></li>\n                                <li><a routerLink=\"/host-login\" routerLinkActive=\"active\">Host Login</a></li>\n                                <li><a routerLink=\"/evaluator-login\" routerLinkActive=\"active\">Evaluator Login</a></li>\n                            </ul>\n                        </li>\n    \n                        <!-- User Account Menu -->\n                        <li class=\"dropdown user user-menu\" *ngIf=\"authService.loggedIn()||authService.adminLoggedIn()||authService.hostLoggedIn()||authService.evaluatorLoggedIn()\">\n                            <!-- Menu Toggle Button -->\n                            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" *ngIf=\"authService.loggedIn()||authService.adminLoggedIn()||authService.hostLoggedIn()||authService.evaluatorLoggedIn()\">\n                                <!-- The user image in the navbar-->\n                               <img *ngIf=\"authService.getAdminName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getAdminName()}}\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getHostName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getHostName()}}\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getEvaluatorName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getEvaluatorName()}}\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getUserName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getUserName()}}\" class=\"user-image\" alt=\"User Image\">  <!-- hidden-xs hides the username on small devices so only the image appears. -->\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getAdminName()\">{{authService.getAdminName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getHostName()\">{{authService.getHostName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getEvaluatorName()\">{{authService.getEvaluatorName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getUserName()\">{{authService.getUserName()}}</span>\n    \n                            </a>\n                            <ul class=\"dropdown-menu\">\n                                <!-- The user image in the menu -->\n                                <li class=\"user-header\">\n                                    <img *ngIf=\"authService.getAdminName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getAdminName()}}\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getHostName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getHostName()}}\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getEvaluatorName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getEvaluatorName()}}\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getUserName()\" src=\"https://api.adorable.io/avatars/160/{{authService.getUserName()}}\" class=\"img-circle\" alt=\"User Image\">\n    \n                                    <p *ngIf=\"authService.getAdminName()\">\n                                        {{authService.getAdminName()}} - Admin\n                                        <small>Member since Nov. 2012</small>\n                                    </p>\n                                    <p *ngIf=\"authService.getHostName()\">\n                                            {{authService.getHostName()}} - Host\n                                        <small>Member since Nov. 2012</small>\n                                    </p>\n                                    <p *ngIf=\"authService.getEvaluatorName()\">\n                                            {{authService.getEvaluatorName()}} - Evaluator\n                                        <small>Member since Nov. 2012</small>\n                                    </p>\n                                    <p *ngIf=\"authService.getUserName()\">\n                                            {{authService.getUserName()}} - User\n                                        <small>Member since Nov. 2012</small>\n                                    </p>\n                                </li>\n                                <!-- Menu Body -->\n                                <li class=\"user-body\">\n                                    <div class=\"row\">\n                                        <div class=\"col-xs-4 text-center\">\n                                            <a href=\"#\">Followers</a>\n                                        </div>\n                                        <div class=\"col-xs-4 text-center\">\n                                            <a href=\"#\">Sales</a>\n                                        </div>\n                                        <div class=\"col-xs-4 text-center\">\n                                            <a href=\"#\">Friends</a>\n                                        </div>\n                                    </div>\n                                    <!-- /.row -->\n                                </li>\n                                <!-- Menu Footer-->\n                                <li class=\"user-footer\">\n                                    <div class=\"pull-left\">\n                                        <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>\n                                    </div>\n                                    <div class=\"pull-right\">\n                                        <a *ngIf=\"authService.loggedIn()\" routerLink=\"/login\" (click)=\"onLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.adminLoggedIn()\" routerLink=\"/admin-login\" (click)=\"onAdminLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.hostLoggedIn()\" routerLink=\"/host-login\" (click)=\"onHostLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.evaluatorLoggedIn()\" routerLink=\"/evaluator-login\" (click)=\"onEvaluatorLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                    </div>\n                                </li>\n                            </ul>\n                        </li>\n    \n                        \n                        <li *ngIf=\"!authService.loggedIn()&&!authService.adminLoggedIn()&&!authService.hostLoggedIn()&&!authService.evaluatorLoggedIn()\">\n                            <a routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- /.navbar-custom-menu -->\n            </div>\n            <!-- /.container-fluid -->\n        </nav>\n    </header>"
+module.exports = "<header class=\"main-header\">\n        <nav class=\"navbar navbar-static-top\">\n            <div class=\"container\">\n                <div class=\"navbar-header\">\n                    <a routerLink=\"/home\" routerLinkActive=\"active\" class=\"navbar-brand\"><b>Hackathon</b></a>\n                    <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\n                        <i class=\"fa fa-bars\"></i>\n                    </button>\n                </div>\n    \n                <!-- Collect the nav links, forms, and other content for toggling -->\n                <div class=\"collapse navbar-collapse pull-left\" id=\"navbar-collapse\">\n                    <ul class=\"nav navbar-nav\">\n                        <li *ngIf=\"authService.loggedIn()\"><a routerLink=\"/home\" routerLinkActive=\"active\">Home <span class=\"sr-only\">(current)</span></a></li>\n                        <li *ngIf=\"authService.adminLoggedIn()\">\n                            <a routerLink=\"/admin-dashboard\" routerLinkActive=\"active\">Admin Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.hostLoggedIn()\">\n                            <a routerLink=\"/host-dashboard\" routerLinkActive=\"active\">Host Dashboard</a>\n                        </li>\n                        <li *ngIf=\"authService.evaluatorLoggedIn()\">\n                            <a routerLink=\"/evaluator-dashboard\" routerLinkActive=\"active\">Evaluator Dashboard</a>\n                        </li>\n                        <!-- <li *ngIf=\"authService.loggedIn()\">\n                            <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n                        </li> -->\n                        <li *ngIf=\"authService.loggedIn()\">\n                            <a routerLink=\"/profile\" routerLinkActive=\"active\">Profile</a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- /.navbar-collapse -->\n                <!-- Navbar Right Menu -->\n                <div class=\"navbar-custom-menu\">\n                    <ul class=\"nav navbar-nav\">\n                        <li class=\"dropdown\" *ngIf=\"!authService.loggedIn()&&!authService.adminLoggedIn()&&!authService.hostLoggedIn()&&!authService.evaluatorLoggedIn()\">\n                            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Login <span class=\"caret\"></span></a>\n                            <ul class=\"dropdown-menu\" role=\"menu\">\n                                <li><a routerLink=\"/login\" routerLinkActive=\"active\">User Login</a></li>\n                                <li><a routerLink=\"/admin-login\" routerLinkActive=\"active\">Admin Login</a></li>\n                                <li><a routerLink=\"/host-login\" routerLinkActive=\"active\">Host Login</a></li>\n                                <li><a routerLink=\"/evaluator-login\" routerLinkActive=\"active\">Evaluator Login</a></li>\n                            </ul>\n                        </li>\n    \n                        <!-- User Account Menu -->\n                        <li class=\"dropdown user user-menu\" *ngIf=\"authService.loggedIn()||authService.adminLoggedIn()||authService.hostLoggedIn()||authService.evaluatorLoggedIn()\">\n                            <!-- Menu Toggle Button -->\n                            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" *ngIf=\"authService.loggedIn()||authService.adminLoggedIn()||authService.hostLoggedIn()||authService.evaluatorLoggedIn()\">\n                                <!-- The user image in the navbar-->\n                               <img *ngIf=\"authService.getAdminName()\" src=\"assets/dist/img/128.png\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getHostName()\" src=\"assets/dist/img/128.png\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getEvaluatorName()\" src=\"assets/dist/img/128.png\" class=\"user-image\" alt=\"User Image\">\n                                <img *ngIf=\"authService.getUserName()\" src=\"assets/dist/img/128.png\" class=\"user-image\" alt=\"User Image\">  <!-- hidden-xs hides the username on small devices so only the image appears. -->\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getAdminName()\">{{authService.getAdminName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getHostName()\">{{authService.getHostName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getEvaluatorName()\">{{authService.getEvaluatorName()}}</span>\n                                <span class=\"hidden-xs\" *ngIf=\"authService.getUserName()\">{{authService.getUserName()}}</span>\n    \n                            </a>\n                            <ul class=\"dropdown-menu\">\n                                <!-- The user image in the menu -->\n                                <li class=\"user-header\">\n                                    <img *ngIf=\"authService.getAdminName()\" src=\"assets/dist/img/160.png\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getHostName()\" src=\"assets/dist/img/160.png\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getEvaluatorName()\" src=\"assets/dist/img/160.png\" class=\"img-circle\" alt=\"User Image\">\n                                    <img *ngIf=\"authService.getUserName()\" src=\"assets/dist/img/160.png\" class=\"img-circle\" alt=\"User Image\">\n    \n                                    <p *ngIf=\"authService.getAdminName()\">\n                                        {{authService.getAdminName()}} - Admin\n                                    </p>\n                                    <p *ngIf=\"authService.getHostName()\">\n                                            {{authService.getHostName()}} - Host\n                                    </p>\n                                    <p *ngIf=\"authService.getEvaluatorName()\">\n                                            {{authService.getEvaluatorName()}} - Evaluator\n                                    </p>\n                                    <p *ngIf=\"authService.getUserName()\">\n                                            {{authService.getUserName()}} - User\n                                    </p>\n                                </li>\n                                <!-- Menu Footer-->\n                                <li class=\"user-footer\">\n                                    <div class=\"pull-left\">\n                                        <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>\n                                    </div>\n                                    <div class=\"pull-right\">\n                                        <a *ngIf=\"authService.loggedIn()\" routerLink=\"/login\" (click)=\"onLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.adminLoggedIn()\" routerLink=\"/admin-login\" (click)=\"onAdminLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.hostLoggedIn()\" routerLink=\"/host-login\" (click)=\"onHostLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                        <a *ngIf=\"authService.evaluatorLoggedIn()\" routerLink=\"/evaluator-login\" (click)=\"onEvaluatorLogoutClick()\" routerLinkActive=\"active\" class=\"btn btn-default btn-flat\">Sign out</a>\n                                    </div>\n                                </li>\n                            </ul>\n                        </li>\n    \n                        \n                        <li *ngIf=\"!authService.loggedIn()&&!authService.adminLoggedIn()&&!authService.hostLoggedIn()&&!authService.evaluatorLoggedIn()\">\n                            <a routerLink=\"/register\" routerLinkActive=\"active\">Register</a>\n                        </li>\n                    </ul>\n                </div>\n                <!-- /.navbar-custom-menu -->\n            </div>\n            <!-- /.container-fluid -->\n        </nav>\n    </header>"
 
 /***/ }),
 
@@ -2658,7 +2899,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n    <div class=\"bg-navy-active color-palette\">\n        <div class=\"container\">\n            <h1 style=\"text-align:center\">FEATURED HACKATHONS</h1>\n            <div *ngFor='let event of events'>\n                <div *ngIf=\"event.future == 'true'\">\n                    <div class=\"bg-light-blue-active color-palette\">\n\n                        <div class=\"row\">\n\n                            <div class=\"col-lg-2  col-xs-6\">\n                                <div>\n                                    <i style=\" line-height:60px;margin-left:20%\" class=\"fa fa-clock-o\"></i> {{event.time}}\n                                </div>\n                            </div>\n                            <div class=\"col-lg-1 col-xs-6\">\n                                <div>\n                                    <h1 style=\" line-height:50% ; margin-left:30%\"><i class=\"fa fa-laptop\" ></i></h1>\n                                </div>\n                            </div>\n                            <div class=\"col-lg-7  col-xs-12\">\n                                <div>\n                                    <h3 style=\" line-height:50% ;\">{{ event.event_title }}</h3>\n                                    <p>{{ event.event_description }}</p>\n                                </div>\n\n                            </div>\n                            <div class=\"col-lg-2  col-xs-12\">\n                                <div>\n                                    <h4 style=\" line-height:50px\"><i class=\"fa fa-map-marker\"></i> {{ event.location }}</h4>\n                                </div>\n\n                            </div>\n\n                        </div>\n                    </div>\n\n                    <br>\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"container\">\n\n        <section class=\"content\">\n\n            <h2 class=\"page-header\">Registered Teams Events</h2>\n            <table class=\"table table-bordered table-hover table-sm table-responsive\">\n                <thead>\n                    <tr>\n                        <th>Registration ID</th>\n                        <th>Username</th>\n                        <th>Team Name</th>\n                        <th>Event Title</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor='let team of teams'>\n                        <td>{{ team._id }}</td>\n                        <td>{{ team.username }}</td>\n                        <td>{{ team.team_name }}</td>\n                        <td> {{ team.event_title}}</td>\n                        <td><a class=\"btn btn-xs btn-primary\" [routerLink]=\"['/user-teamwise-submissions',team.event_title,team._id]\">View Submissions</a></td>\n                        <td><a class=\"btn btn-xs btn-primary\" [routerLink]=\"['/submit-artifact',team._id]\">Submit Artifacts</a></td>\n\n                    </tr>\n                </tbody>\n            </table>\n\n            <div class=\"box box-info\">\n                <div class=\"box-header with-border\">\n                    <h3 class=\"box-title\">Ongoing events</h3>\n                </div>\n                <!-- /.box-header -->\n                <div class=\"box-body\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table\">\n                            <thead>\n                                <tr>\n                                    <th>Title</th>\n                                    <th>Start Date and Time</th>\n                                    <th>End Date and Time</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor='let event of events'>\n\n                                    <td *ngIf=\"event.live == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                    <td *ngIf=\"event.live == 'true'\">{{ event.start | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                    <td *ngIf=\"event.live == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                    <td *ngIf=\"event.live == 'true'\"><a [routerLink]=\"['/team-registration',event._id]\" class=\"btn btn-xs btn-primary\">Register</a></td>\n\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <!-- /.table-responsive -->\n                </div>\n                <!-- /.box-footer -->\n            </div>\n\n            <div class=\"box box-info\">\n                <div class=\"box-header with-border\">\n                    <h3 class=\"box-title\">Future events</h3>\n\n                    <div class=\"box-tools pull-right\">\n                        <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\"><i class=\"fa fa-times\"></i></button>\n                    </div>\n                </div>\n                <!-- /.box-header -->\n                <div class=\"box-body\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table no-margin\">\n                            <thead>\n                                <tr>\n                                    <th>Title</th>\n                                    <th>Start Date and Time</th>\n                                    <th>End Date and Time</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor='let event of events'>\n\n                                    <td *ngIf=\"event.future == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                    <td *ngIf=\"event.future == 'true'\">{{ event.start| date: 'dd-MM-yyyy HH:mm' }}</td>\n                                    <td *ngIf=\"event.future == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                    <td *ngIf=\"event.future == 'true'\"><a [routerLink]=\"['/team-registration',event._id]\" class=\"btn btn-xs btn-primary\">Register</a></td>\n\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <!-- /.table-responsive -->\n                </div>\n                <!-- /.box-footer -->\n            </div>\n\n            <div class=\"box box-info\">\n                <div class=\"box-header with-border\">\n                    <h3 class=\"box-title\">Archived events</h3>\n\n                    <div class=\"box-tools pull-right\">\n                        <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\"><i class=\"fa fa-times\"></i></button>\n                    </div>\n                </div>\n                <!-- /.box-header -->\n                <div class=\"box-body\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table no-margin\">\n                            <thead>\n                                <tr>\n                                    <th>Title</th>\n                                    <th>Start Date and Time</th>\n                                    <th>End Date and Time</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor='let event of events'>\n\n                                    <td *ngIf=\"event.archived == 'true'\"><a [routerLink]=\"['/event-page',event._id]\">{{ event.event_title }}</a></td>\n                                    <td *ngIf=\"event.archived == 'true'\">{{ event.start | date: 'dd-MM-yyyy HH:mm'}}</td>\n                                    <td *ngIf=\"event.archived == 'true'\"> {{ event.end | date: 'dd-MM-yyyy HH:mm'}}</td>\n\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                    <!-- /.table-responsive -->\n                </div>\n                <!-- /.box-footer -->\n            </div>\n        </section>\n\n    </div>\n</div>"
+module.exports = "<div style=\"margin-top:5%\">\n<div style=\"width:60%;border:1px solid grey;margin:auto\"> <!--margin-top:5%;margin-left:10%;margin-right:10%-->\n    <div style=\"display:flex;flex-direction:row;justify-content:space-around\">\n        <div style=\"width:40%\"><p style=\"text-align:left\">Username</p></div>\n        <div style=\"width:5%\"><p style=\"text-align:center\">:</p></div>\n        <div style=\"width:40%\"><p style=\"text-align:right\">{{username}}</p></div>\n    </div>\n    <div style=\"display:flex;flex-direction:row;justify-content:space-around\">\n            <div style=\"width:40%\"><p style=\"text-align:left\">Email</p></div>\n            <div style=\"width:5%\"><p style=\"text-align:center\">:</p></div>\n            <div style=\"width:40%\"><p style=\"text-align:right\">{{email}}</p></div>\n    </div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -2668,9 +2909,6 @@ module.exports = "<div class=\"content-wrapper\">\n    <div class=\"bg-navy-acti
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_get_token_service__ = __webpack_require__("../../../../../src/app/services/get-token.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2681,26 +2919,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
 var ProfileComponent = (function () {
-    function ProfileComponent(router, activatedRoute, authService, tokenService) {
-        this.router = router;
-        this.activatedRoute = activatedRoute;
-        this.authService = authService;
-        this.tokenService = tokenService;
-        this.events = new Array;
-        this.teams = new Array;
-        this.accessToken = null;
-        this.accessResponse = null;
+    function ProfileComponent() {
+        this.username = null;
+        this.email = null;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.authService.getEvents().subscribe(function (data) {
-            _this.events = data.events;
-        });
-        this.authService.getTeams(JSON.parse(localStorage.getItem('user')).username).subscribe(function (teams) { return _this.teams = teams; });
+        var info = JSON.parse(localStorage.getItem('user'));
+        this.username = info ? info.username : 'Not found';
+        this.email = info ? info.email : 'Not found';
     };
     ProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -2708,10 +2935,7 @@ var ProfileComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/profile/profile.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/profile/profile.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_get_token_service__["a" /* GetTokenService */]])
+        __metadata("design:paramtypes", [])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -2899,97 +3123,6 @@ var RegisterComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/submit-artifact/submit-artifact.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/submit-artifact/submit-artifact.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<style>\n    .my-drop-zone { border: dotted 3px lightgray; }\n    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */\n    .another-file-over-class { border: dotted 3px green; }\n \n    html, body { height: 100%; }\n</style>\n \n<div class=\"container\">\n \n    <div class=\"navbar navbar-default\">\n        <div class=\"navbar-header\">\n            <a class=\"navbar-brand\" href>Angular2 File Upload</a>\n        </div>\n    </div>\n \n    <div class=\"row\">\n \n        <div class=\"col-md-3\">\n \n            <h3>Select files</h3>\n \n            <div ng2FileDrop\n                 [ngClass]=\"{'nv-file-over': hasBaseDropZoneOver}\"\n                 (fileOver)=\"fileOverBase($event)\"\n                 [uploader]=\"uploader\"\n                 class=\"well my-drop-zone\">\n                Base drop zone\n            </div>\n \n            <div ng2FileDrop\n                 [ngClass]=\"{'another-file-over-class': hasAnotherDropZoneOver}\"\n                 (fileOver)=\"fileOverAnother($event)\"\n                 [uploader]=\"uploader\"\n                 class=\"well my-drop-zone\">\n                Another drop zone\n            </div>\n \n            Multiple\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple  /><br/>\n \n            Single\n            <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" />\n        </div>\n \n        <div class=\"col-md-9\" style=\"margin-bottom: 40px\">\n \n            <h3>Upload queue</h3>\n            <p>Queue length: {{ uploader?.queue?.length }}</p>\n \n            <table class=\"table\">\n                <thead>\n                <tr>\n                    <th width=\"50%\">Name</th>\n                    <th>Size</th>\n                    <th>Progress</th>\n                    <th>Status</th>\n                    <th>Actions</th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr *ngFor=\"let item of uploader.queue\">\n                    <td><strong>{{ item?.file?.name }}</strong></td>\n                    <td *ngIf=\"uploader.isHTML5\" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\n                    <td *ngIf=\"uploader.isHTML5\">\n                        <div class=\"progress\" style=\"margin-bottom: 0;\">\n                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\n                        </div>\n                    </td>\n                    <td class=\"text-center\">\n                        <span *ngIf=\"item.isSuccess\"><i class=\"glyphicon glyphicon-ok\"></i></span>\n                        <span *ngIf=\"item.isCancel\"><i class=\"glyphicon glyphicon-ban-circle\"></i></span>\n                        <span *ngIf=\"item.isError\"><i class=\"glyphicon glyphicon-remove\"></i></span>\n                    </td>\n                    <td nowrap>\n                        <button type=\"button\" class=\"btn btn-success btn-xs\"\n                                (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\n                            <span class=\"glyphicon glyphicon-upload\"></span> Upload\n                        </button>\n                        <button type=\"button\" class=\"btn btn-warning btn-xs\"\n                                (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\n                            <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel\n                        </button>\n                        <button type=\"button\" class=\"btn btn-danger btn-xs\"\n                                (click)=\"item.remove()\">\n                            <span class=\"glyphicon glyphicon-trash\"></span> Remove\n                        </button>\n                    </td>\n                </tr>\n                </tbody>\n            </table>\n \n            <div>\n                <div>\n                    Queue progress:\n                    <div class=\"progress\" style=\"\">\n                        <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\n                    </div>\n                </div>\n                <button type=\"button\" class=\"btn btn-success btn-s\"\n                        (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\n                    <span class=\"glyphicon glyphicon-upload\"></span> Upload all\n                </button>\n                <button type=\"button\" class=\"btn btn-warning btn-s\"\n                        (click)=\"uploader.cancelAll()\" [disabled]=\"!uploader.isUploading\">\n                    <span class=\"glyphicon glyphicon-ban-circle\"></span> Cancel all\n                </button>\n                <button type=\"button\" class=\"btn btn-danger btn-s\"\n                        (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\n                    <span class=\"glyphicon glyphicon-trash\"></span> Remove all\n                </button>\n            </div>\n \n        </div>\n \n    </div>\n \n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/submit-artifact/submit-artifact.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubmitArtifactComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var SubmitArtifactComponent = (function () {
-    function SubmitArtifactComponent(router, route) {
-        this.router = router;
-        this.route = route;
-        this.hasBaseDropZoneOver = false;
-        this.hasAnotherDropZoneOver = false;
-        this.myurl = 'http://localhost:8080/authentication/upload/';
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_1_ng2_file_upload__["FileUploader"]({ url: this.myurl });
-    }
-    SubmitArtifactComponent.prototype.fileOverBase = function (e) {
-        this.hasBaseDropZoneOver = e;
-    };
-    SubmitArtifactComponent.prototype.fileOverAnother = function (e) {
-        this.hasAnotherDropZoneOver = e;
-    };
-    SubmitArtifactComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.forEach(function (params) {
-            _this._id = params['_id'];
-        });
-        this.uploader.onBuildItemForm = function (fileItem, form) {
-            form.append('_id', _this._id);
-            form.append('username', JSON.parse(localStorage.getItem('user')).username);
-        };
-        this.uploader.onCompleteItem = function (item, response, status, headers) {
-            console.log("ImageUpload:uploaded:", item, status);
-            _this.router.navigate(['/profile']);
-        };
-    };
-    SubmitArtifactComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-submit-artifact',
-            template: __webpack_require__("../../../../../src/app/components/submit-artifact/submit-artifact.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/submit-artifact/submit-artifact.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
-    ], SubmitArtifactComponent);
-    return SubmitArtifactComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/components/team-registration/team-registration.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3075,7 +3208,7 @@ var TeamRegistrationComponent = (function () {
             _this._id = params['_id'];
         });
         this.authService.getEvent(this._id).subscribe(function (event) {
-            _this.event = event;
+            _this.event = event.event;
         });
     };
     TeamRegistrationComponent = __decorate([
@@ -3090,85 +3223,6 @@ var TeamRegistrationComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]])
     ], TeamRegistrationComponent);
     return TeamRegistrationComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2 class=\"page-header\">Uploaded Files</h2>\n<table  class=\"table table-bordered table-hover table-sm table-responsive\"  >\n    <thead>\n        <tr>\n            <th >Team ID</th>\n            <th> Event Name</th>\n            <th >File Name</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor='let file of files'>\n            <td>{{file.team_id}}</td>\n            <td>{{event_title}}</td>\n            <td><a href=\"http://localhost:8080/{{file.file_name}}\" target=\"_blank\">{{file.file_name}}</a></td>\n            \n          \n        </tr>\n    </tbody>\n  </table>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserEventwiseSubmissionsComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var UserEventwiseSubmissionsComponent = (function () {
-    function UserEventwiseSubmissionsComponent(router, authService, route) {
-        this.router = router;
-        this.authService = authService;
-        this.route = route;
-        this.files = new Array;
-    }
-    UserEventwiseSubmissionsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.forEach(function (params) {
-            _this._id = params['_id'];
-            _this.event_title = params['event_title'];
-        });
-        this.authService.getUserTeamwiseSubmissions(this._id).subscribe(function (files) {
-            _this.files = files;
-        });
-    };
-    UserEventwiseSubmissionsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-user-eventwise-submissions',
-            template: __webpack_require__("../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/user-eventwise-submissions/user-eventwise-submissions.component.css")]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
-    ], UserEventwiseSubmissionsComponent);
-    return UserEventwiseSubmissionsComponent;
 }());
 
 
@@ -3196,7 +3250,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/view-events/view-events.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table >\n  <thead>\n      <tr>\n          <th >Title</th>\n          <th >Host</th>\n          <th >Description</th>\n      </tr>\n  </thead>\n  <tbody>\n      <tr *ngFor='let event of events'>\n\n          <td>{{ event.event_title }}</td>\n          <td>{{ event.host_username }}</td>\n          <td>{{ event.event_description }}</td>\n          <td><a (click)=\"deleteEvent(event._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n\n      </tr>\n  </tbody>\n</table>"
+module.exports = "<div>\n    <h3 style=\"text-align:center\">List of Events</h3>\n<div style=\"margin:5%\">\n<table class=\"table table-hover\">\n  <thead>\n      <tr>\n          <th >Title</th>\n          <th >Host</th>\n          <th >Description</th>\n      </tr>\n  </thead>\n  <tbody>\n      <tr *ngFor='let event of events'>\n\n          <td>{{ event.event_title }}</td>\n          <td>{{ event.host_username }}</td>\n          <td>{{ event.event_description }}</td>\n          <td><a (click)=\"deleteEvent(event._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n\n      </tr>\n  </tbody>\n</table>\n</div>\n</div>"
 
 /***/ }),
 
@@ -3268,7 +3322,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/view-host-events/view-host-events.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table >\n  <thead>\n      <tr>\n          <th >Title</th>\n          <th >Host</th>\n          <th >Description</th>\n      </tr>\n  </thead>\n  <tbody>\n      <tr *ngFor='let host_event of host_events'>\n\n          <td><a [routerLink]=\"['/event-page',host_event._id]\">{{ host_event.event_title }}</a></td>\n          <td>{{ host_event.host_username }}</td>\n          <td>{{ host_event.event_description }}</td>\n          <td><a [routerLink]=\"['/configure-event',host_event._id]\" class=\"btn btn-xs btn-primary\">Configure</a></td>\n          <td><a [routerLink]=\"['/event-page',host_event._id]\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n          \n\n      </tr>\n  </tbody>\n</table>"
+module.exports = "<div class=\"content-wrapper\">\n    <div class=\"container\">\n\n        <section class=\"content\">\n\n                <div class=\"box\">\n                        <div class=\"box-header\">\n                                <h3 class=\"box-title\">Events</h3>\n                            </div>\n                        <!-- /.box-header -->\n                        <div class=\"box-body\">\n                            <table class=\"table table-condensed\">\n                                <tr>\n                                        <th >Title</th>\n                                        <th >Host</th>\n                                        <th >Description</th>\n                                </tr>\n                                <tr *ngFor='let host_event of host_events'>\n                                        \n                                                  <td><a [routerLink]=\"['/event-page',host_event._id]\">{{ host_event.event_title }}</a></td>\n                                                  <td>{{ host_event.host_username }}</td>\n                                                  <td>{{ host_event.event_description }}</td>\n                                                  <td><a [routerLink]=\"['/configure-event',host_event._id]\" class=\"btn btn-xs btn-primary\">Configure</a></td>\n                                                  <td><a [routerLink]=\"['/event-page',host_event._id]\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n                                                  \n                                        \n                                </tr>\n                            </table>\n                        </div>\n                        <!-- /.box-body -->\n                    </div>\n\n            </section>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -3327,7 +3381,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "th th{\n    text-align: center;\n}", ""]);
 
 // exports
 
@@ -3340,7 +3394,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/view-hosts/view-hosts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table >\n  <thead>\n      <tr>\n          <th >Host</th>\n          <th >Email</th>\n      </tr>\n  </thead>\n  <tbody>\n      <tr *ngFor='let host of hosts'>\n\n          <td>{{ host.host_username }}</td>\n<td>{{ host.host_email }}</td>\n<td><a (click)=\"deleteHost(host._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n\n      </tr>\n  </tbody>\n</table>"
+module.exports = "<h3 style=\"text-align:center\">List of Hosts</h3>\n<table class=\"table table-hover\">\n  <thead>\n      <tr>\n          <th >Host</th>\n          <th >Email</th>\n      </tr>\n  </thead>\n  <tbody>\n      <tr *ngFor='let host of hosts'>\n\n          <td>{{ host.host_username }}</td>\n<td>{{ host.host_email }}</td>\n<td><a (click)=\"deleteHost(host._id)\" class=\"btn btn-xs btn-danger\">Delete</a></td>\n\n      </tr>\n  </tbody>\n</table>"
 
 /***/ }),
 
@@ -3385,6 +3439,166 @@ var ViewHostsComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
     ], ViewHostsComponent);
     return ViewHostsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/contact.resolve.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactResolve; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ContactResolve = (function () {
+    function ContactResolve(authService) {
+        this.authService = authService;
+    }
+    ContactResolve.prototype.resolve = function (route) {
+        return this.authService.getEvent(route.params['id']);
+    };
+    ContactResolve = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
+    ], ContactResolve);
+    return ContactResolve;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/contacts-detail/contacts-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactsDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ContactsDetailComponent = (function () {
+    function ContactsDetailComponent(route) {
+        this.route = route;
+        this.x = {};
+        this.event = {};
+    }
+    ContactsDetailComponent.prototype.ngOnInit = function () {
+        this.x = this.route.snapshot.data['contact'];
+        this.event = this.x.event;
+    };
+    ContactsDetailComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'contacts-detail',
+            template: "\n    <h2>Event Details</h2>\n    \n    <dl>\n      <dd>{{event.event_title}}</dd>\n      <dd>{{event.host_username}}</dd>\n    </dl>\n    \n    <p><a routerLink=\"/\">Back to list</a></p>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], ContactsDetailComponent);
+    return ContactsDetailComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/contacts-list/contacts-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactsListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ContactsListComponent = (function () {
+    function ContactsListComponent(authService) {
+        this.authService = authService;
+        this.events = new Array;
+    }
+    ContactsListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.authService.getEvents().subscribe(function (data) { return _this.events = data.events; });
+    };
+    ContactsListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'contacts-list',
+            template: "\n    <ul>\n      <li *ngFor=\"let event of events\">\n        <a [routerLink]=\"['/contact',event._id]\">{{event.event_title}}</a>\n      </li>\n    </ul>\n  "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
+    ], ContactsListComponent);
+    return ContactsListComponent;
+}());
+
+/*
+Copyright 2016 thoughtram GmbH. All Rights Reserved.
+Use of this source code is governed by an TTML-style license that
+can be found in the license.txt file at http://thoughtram.io/license.txt
+*/ 
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/event.resolve.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventResolve; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EventResolve = (function () {
+    function EventResolve(authService) {
+        this.authService = authService;
+    }
+    EventResolve.prototype.resolve = function (route) {
+        return this.authService.checkRegistration(JSON.parse(localStorage.getItem('user')).username, route.params['_id']);
+    };
+    EventResolve = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]])
+    ], EventResolve);
+    return EventResolve;
 }());
 
 
@@ -3795,6 +4009,7 @@ var NotAuthGuard = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__server_name_service__ = __webpack_require__("../../../../../src/app/services/server-name.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3808,10 +4023,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthService = (function () {
-    function AuthService(http) {
+    function AuthService(http, serverName) {
         this.http = http;
-        this.domain = ""; // "http://localhost:5000/";
+        this.serverName = serverName;
+        this.domain = null;
+        this.domain = this.serverName.getURL();
+        //console.log("domain is:"+this.domain);
     }
     // Function to create headers, add token, to be used in HTTP requests
     AuthService.prototype.createAuthenticationHeaders = function () {
@@ -3918,11 +4137,20 @@ var AuthService = (function () {
     AuthService.prototype.getEvents = function () {
         return this.http.get(this.domain + 'authentication/events').map(function (res) { return res.json(); });
     };
-    AuthService.prototype.getTeams = function (username) {
-        return this.http.get(this.domain + 'authentication/team_details/' + username).map(function (res) { return res.json(); });
+    AuthService.prototype.getEvent = function (_id) {
+        return this.http.get(this.domain + 'authentication/events/' + _id).map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getEventDetails = function (_id) {
+        return this.http.get(this.domain + 'authentication/event_details/' + _id).map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getTeam = function (username, _id) {
+        return this.http.get(this.domain + 'authentication/team_details/' + username + "/" + _id).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getEvalEventwiseTeams = function (event_id) {
         return this.http.get(this.domain + 'authentication/eval_eventwise_team_details/' + event_id).map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getHostEventwiseTeams = function (event_id) {
+        return this.http.get(this.domain + 'authentication/host_eventwise_team_details/' + event_id).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getEvalTeamwiseSubmissions = function (team_id) {
         return this.http.get(this.domain + 'authentication/teamwise_files/' + team_id).map(function (res) { return res.json(); });
@@ -3930,11 +4158,8 @@ var AuthService = (function () {
     AuthService.prototype.getUserTeamwiseSubmissions = function (team_id) {
         return this.http.get(this.domain + 'authentication/teamwise_files/' + team_id).map(function (res) { return res.json(); });
     };
-    AuthService.prototype.getEvent = function (_id) {
-        return this.http.get(this.domain + 'authentication/events/' + _id).map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.getEvaluationData = function (_id) {
-        return this.http.get(this.domain + 'authentication/evaluation_data/' + _id).map(function (res) { return res.json(); });
+    AuthService.prototype.getEvaluationData = function (_id, evaluator_username) {
+        return this.http.get(this.domain + 'authentication/evaluation_data/' + _id + "/" + evaluator_username).map(function (res) { return res.json(); });
     };
     AuthService.prototype.updateEvent = function (updatedEvent) {
         var body = {
@@ -3947,9 +4172,14 @@ var AuthService = (function () {
             _id: updatedEvent._id,
             max_team_members: updatedEvent.max_team_members,
             max_ideas: updatedEvent.max_ideas,
-            prize: updatedEvent.prize,
+            prize1: updatedEvent.prize1,
+            prize2: updatedEvent.prize2,
+            prize3: updatedEvent.prize3,
+            winner1: updatedEvent.winner1,
+            winner2: updatedEvent.winner2,
+            winner3: updatedEvent.winner3,
             publish: updatedEvent.publish,
-            evaluators_array: updatedEvent.evaluators_array,
+            evaluator_username: updatedEvent.evaluator_username,
         };
         console.log(body);
         return this.http.put(this.domain + 'authentication/update-event/' + body._id, body);
@@ -3983,6 +4213,9 @@ var AuthService = (function () {
     AuthService.prototype.deleteHost = function (_id) {
         return this.http.delete(this.domain + 'authentication/delete_host/' + _id).map(function (res) { return res.json(); });
     };
+    AuthService.prototype.checkRegistration = function (username, event_id) {
+        return this.http.get(this.domain + 'authentication/check_registration/' + username + "/" + event_id).map(function (res) { return res.json(); });
+    };
     // Function to register user accounts
     AuthService.prototype.registerUser = function (user) {
         return this.http.post(this.domain + 'authentication/register', user).map(function (res) { return res.json(); });
@@ -4014,7 +4247,7 @@ var AuthService = (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_4__server_name_service__["a" /* ServerNameService */]])
     ], AuthService);
     return AuthService;
 }());
@@ -4031,6 +4264,7 @@ var AuthService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_server_name_service__ = __webpack_require__("../../../../../src/app/services/server-name.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4043,22 +4277,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var GetTokenService = (function () {
-    function GetTokenService(http) {
+    function GetTokenService(http, serverName) {
         this.http = http;
-        this.accessTokenUrl = "http://localhost:5000/authentication/callback";
+        this.serverName = serverName;
+        this.accessTokenUrl = "authentication/callback";
     }
     GetTokenService.prototype.getToken = function (info) {
         console.log(info);
-        return this.http.post(this.accessTokenUrl, {
+        return this.http.post(this.serverName.getURL() + this.accessTokenUrl, {
             code: info
         });
     };
     GetTokenService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_3__services_server_name_service__["a" /* ServerNameService */]])
     ], GetTokenService);
     return GetTokenService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/server-name.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerNameService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ServerNameService = (function () {
+    function ServerNameService() {
+        this.url = "http://localhost:8080/"; //
+    }
+    ServerNameService.prototype.getURL = function () {
+        return this.url;
+    };
+    ServerNameService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], ServerNameService);
+    return ServerNameService;
 }());
 
 
