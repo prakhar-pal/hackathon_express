@@ -4319,7 +4319,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ServerNameService = (function () {
     function ServerNameService() {
-        this.url = "http://localhost:8080/"; //
+        this.url = ""; //http://localhost:8080/
     }
     ServerNameService.prototype.getURL = function () {
         return this.url;
